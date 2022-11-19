@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E-Movie booking System</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="webiste logo" href="imgs/logo.png" type="image/x-icon">
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script> 
+</head>
+<body>
+    <header>
+        <!-- Logo -->
+        <div class="nav container">
+            <a href="home.html" class="logo">
+                Movie<span>booking</span>
+            </a>
+        <!-- Search Box-->
+        <div class="search-box">
+            <input type="search"  id="search-input" placeholder="Search movie">
+            <lord-icon src="https://cdn.lordicon.com/pvbutfdk.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+        </div>
+
+        <!-- Edit this PART !!!!!!!-->
+
+        <a href="login.html" class="user">
+        <lord-icon src="https://cdn.lordicon.com/dklbhvrt.json" trigger="hover" colors="primary:#ffffff" style="width:40px;height:40px"> </lord-icon>
+        Log in
+        </a>
+        <div class="navbar">
+            <a href="#search-input" class="nav-link">
+                <lord-icon src="https://cdn.lordicon.com/igpbsrza.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                <span class="nav-link-title">Home</span >
+            </a> 
+            <a href="#nowplaying" class="nav-link">
+                <lord-icon src="https://cdn.lordicon.com/axyzxviq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                <span class="nav-link-title">Latest Movies</span >
+            </a>
+            <a href="#comingsoon" class="nav-link">
+                <lord-icon src="https://cdn.lordicon.com/drtetngs.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                <span class="nav-link-title">Coming soon</span >
+            </a>
+                      
+        </div>
+        </div>
+    </header>
+    <section class="landing-page container" id="landing-page">
+        <img src="imgs/landing-page.png" alt="" class="landing-page-img">
+        <div class="landing-text">
+            <h1 class="landing-title">Avatar<br>The Way of Water</br> </h1>
+            <p>Releasing December 16</p>
+            <a href="https://youtu.be/a8Gx8wiNbs8" class="watch-btn">
+                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+            Watch the trailer
+            </a>
+        </div>
+
+    </section>
+    <!-- Landing page sections-->
+    <section class="nowplaying container" id="nowplaying">
+        <!-- Heading-->
+        <div class="heading">
+            <h2 class="heading-title">Now playing</h2>
+            <div class = " swiper-btn ">
+                <div class = "swiper-button-prev"> </div>
+                <div class = "swiper-button-next"> </div>
+            </div>
+        </div>
+        <div #swiperRef="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Movie box 1-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/Avatar.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Avatar (Re-release)</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://youtu.be/qZmY2lT28B8" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="addmovie.html" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 2-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/test.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Avengers End game</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 3-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/joker.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Joker</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 4-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/inception.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Inception</h2>
+                            <span class="movie-type">Sci-fi</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 5-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/blackwidow.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Black Widow</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 6-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/wonderwoman.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Wonder Woman</h2>
+
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 7-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/alien.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Alien</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 8-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/suicide-squad.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Suicide Squad</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+
+
+
+            </div>
+
+            
+        </div>
+        
+          <!-- Swiper JS -->
+          
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        
+         
+    </section>
+    <section class="comingsoon container" id="comingsoon">
+        <!-- Heading-->
+        <div class="heading">
+            <h2 class="heading-title">Coming soon</h2>
+            <!-- 
+            <div class = " swiper-btn ">
+                <div class = "swiper-button-prev"> </div>
+                <div class = "swiper-button-next"> </div>
+            </div>
+            -->
+        </div>
+        <div #swiperRef="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Movie box 1-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/Avatar.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Avatar (Re-release)</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://youtu.be/qZmY2lT28B8" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="addmovie.html" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 2-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/test.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Avengers End game</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 3-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/joker.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Joker</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 4-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/inception.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Inception</h2>
+                            <span class="movie-type">Sci-fi</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 5-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/blackwidow.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Black Widow</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 6-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/wonderwoman.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Wonder Woman</h2>
+
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 7-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/alien.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Alien</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- Movie box 8-->
+                <div class="swiper-slide">
+                    <div class="movie-box">
+                        <img src="imgs/suicide-squad.jpg" alt="" class="movie-box-img">
+                        <div class="box-text">
+                            <h2 class="movie-title">Suicide Squad</h2>
+                            <span class="movie-type">Action</span>
+                            <br>
+                            <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="book-btn">
+                                <span>View Trailer</span> 
+                                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                             </a>
+                            <a href="#" class="book-btn">
+                               <span>Book ticket</span> 
+                               <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+
+
+            </div>
+
+            
+        </div>
+        
+          <!-- Swiper JS -->
+          
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        
+         
+    </section>
+    <script src="js/main.js"></script>
+    
+</body>
+</html>

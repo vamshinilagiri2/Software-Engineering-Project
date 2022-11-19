@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>E-Movie booking System</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/adminstyle.css">
+  <link rel="stylesheet" href="css/admindropstyle.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="webiste logo" href="imgs/logo.png" type="image/x-icon">
+  <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/convertbase64.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+  <!-- <script src="js/nopastdate.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet">
+</head>
+
+<body onload="adminpagedetails()">
+  <header>
+    <!-- Logo -->
+    <div class="nav container">
+      <a href="home.html" class="logo">
+        Movie<span>booking</span>
+      </a>
+
+      <div class="action">
+        <div class="profile" onclick="menuToggle();">
+          <img src="imgs/user.png" alt="">
+        </div>
+
+        <div class="menu">
+          <h3>
+            <p id="userName"> </p>
+            <div>
+              Admin
+            </div>
+          </h3>
+          <ul>
+            <li>
+              <span class="material-icons icons-size">logout </span>
+              <a href="home.html" onclick="return check()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <style>
+        input#name-field {
+          height: 45px;
+          width: 250px;
+          outline: none;
+          margin-left: 20px;
+          font-size: 16px;
+          border-radius: 5px;
+          padding-left: 15px;
+          border: 1px solid #ccc;
+          border-bottom-width: 2px;
+          transition: all 0.3s ease;
+        }
+
+        input#age-field {
+          height: 45px;
+          width: 250px;
+          outline: none;
+          font-size: 16px;
+          margin-left: 20px;
+          border-radius: 5px;
+          padding-left: 15px;
+          border: 1px solid #ccc;
+          border-bottom-width: 2px;
+          transition: all 0.3s ease;
+        }
+
+        input#city-field {
+          height: 45px;
+          outline: none;
+          width: 250px;
+          font-size: 16px;
+          border-radius: 5px;
+          margin-left: 20px;
+          padding-left: 15px;
+          border: 1px solid #ccc;
+          border-bottom-width: 2px;
+          transition: all 0.3s ease;
+        }
+
+        button#add-btn {
+          position: relative;
+          right: -50px;
+          bottom: -10px;
+        }
+      </style>
+
+      <div class="navbar">
+        <a href="#search-input" class="nav-link">
+          <lord-icon src="https://cdn.lordicon.com/igpbsrza.json" trigger="hover" colors="primary:#ffffff"
+            style="width:25px;height:25px"> </lord-icon>
+          <span class="nav-link-title">Home</span>
+        </a>
+        <a href="#Managemoviessection" class="nav-link">
+          <lord-icon src="https://cdn.lordicon.com/axyzxviq.json" trigger="hover" colors="primary:#ffffff"
+            style="width:25px;height:25px"> </lord-icon>
+          <span class="nav-link-title">Manage Movies</span>
+        </a>
+        <a href="#promocodesection" class="nav-link">
+          <lord-icon src="https://cdn.lordicon.com/drtetngs.json" trigger="hover" colors="primary:#ffffff"
+            style="width:25px;height:25px"> </lord-icon>
+          <span class="nav-link-title">Manage Promotions</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+
+  <section class="comingsoon container" id="comingsoon">
+    <!-- Heading-->
+    <div class="heading">
+      <h2 class="heading-title-2">Manage Users</h2>
+    </div>
+
+    <div class="promotableclass">
+      <table>
+        <thead>
+          <tr>
+            <th> Name </th>
+            <th> User Name</th>
+            <th> email Address</th>
+            <th> Role</th>
+
+          </tr>
+        </thead>
+        <tbody id="usertable">
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- Landing page sections-->
+  <section class="nowplaying container" id="nowplaying">
+    <!-- Heading-->
+    <div class="heading" id="Managemoviessection">
+      <h2 class="heading-title-h2">Manage Movies</h2>
+    </div>
+    <div class="scrolltable">
+      <table>
+        <thead>
+          <tr>
+            <th> Movie Image </th>
+            <th> Movie Title </th>
+            <th> Movie Genre </th>
+            <th> Release Date </th>
+          </tr>
+        </thead>
+        <tbody id="movietable">
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </section>
+  <section class="comingsoon container" id="comingsoon">
+    <!-- Heading-->
+    <div class="heading" onclick="addmovie()">
+      <h2 class="heading-title">Add Movie</h2>
+      <lord-icon src="https://cdn.lordicon.com/axyzxviq.json" trigger="hover" colors="primary:#ffffff"
+        style="width:25px;height:25px"> </lord-icon>
+    </div>
+
+    <div class="table-data">
+      <div class="order" id="addmovie" style="display: none;">
+        <div class="head">
+
+          <div class="content">
+            <form id="movie" method="post" onsubmit="addmovieform(event)">
+              <div class="user-details">
+                <div class="input-box">
+                  <span class="details">Movie Name</span>
+                  <input type="text" placeholder="Enter the movie name" name="title" id="title" required>
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Category</span>
+                  <input type="text" placeholder="Enter movie genres" name="category" required>
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Movie Cast </span>
+                  <input type="text" placeholder="Enter Movie Cast Names" name="movieCast" required>
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Director Name</span>
+                  <input type="text" placeholder="Director Name" name="director" required>
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Producer</span>
+                  <input type="text" placeholder="Producer Name" name="producer" id="producer" required>
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Synopsis</span>
+                  <input type="text" placeholder="Synopsis " name="synopsis" required>
+                </div>
+
+                <div class="input-box">
+                  <span class="details">review</span>
+                  <input type="text" placeholder="Movie Review" name="review" required>
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Movie trailer URL</span>
+                  <input type="text" placeholder="Enter youtube link" name="TrailerLink" required>
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Movie Poster</span>
+                  <input type="file" accept="image/png,image/jpeg" style="padding-top: 10px;" name="picture" id="asd" onchange="proccessData(event)">
+                  <input type="hidden" id="base64" name="base64">
+                </div>
+
+                <div class="input-box">
+                  <span class="details">Movie Rating</span>
+                  <input type="number" placeholder="Movie Rating" name="rating" required>
+                </div>
+
+              </div>
+              <div class="button">
+                <input type="submit" value="Add Movie" id="submitbutton">
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <div class="heading" onclick="schedulemovie()">
+        <h2 class="heading-title">Movie Scheduling</h2>
+        <lord-icon src="https://cdn.lordicon.com/drtetngs.json" trigger="hover" colors="primary:#ffffff"
+          style="width:25px;height:25px"> </lord-icon>
+
+      </div>
+
+      <div class="table-data">
+        <div class="order" id="schedulemovie" style="display: none;">
+          <div class="head">
+
+            <div class="content">
+              <form id="schedulemovieform" method="post" onsubmit="schedulemovieform(event)">
+                <div class="user-details">
+                  <div class="input-box">
+                    <span class="details">Movie Name</span>
+                    <input list="movienamelist" type="text" placeholder="select a movie name" name="title" required >
+                    <datalist id="movienamelist">
+
+                    </datalist>
+
+                  </div>
+
+
+                  <div class="input-box">
+                    <span class="details">Screen Selection</span>
+                    <input list="screenlist" type="text" placeholder="select a screen" name="screenID" required>
+                      <datalist id="screenlist">
+                        <option value="101"></option>
+                        <option value="102"></option>
+                        <option value="103"></option>
+                        <option value="104"></option>
+                      </datalist>
+                  </div>
+
+                  
+
+
+
+                  <div class="input-box">
+                    <span class="details"> Schedule a show date</span>
+                    <input type="date" placeholder="Movie release date" name="showDate" id="nopastdate" required>
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details"> Show Duration in seconds</span>
+                    <input type="number"  placeholder="Time"  name="showDuration" required>
+                  </div>
+
+
+                  <div class="input-box">
+                    <span class="details"> Schedule a show time</span>
+                    <input list="showtimelist" type="time"  placeholder="Time"  name="showTime" required>
+                    <datalist id="showtimelist">
+                      <option value="23:00:00"></option>
+                      <option value="19:00:00"></option>
+                      <option value="15:00:00"></option>
+                      <option value="17:00:00"></option>
+                    </datalist>
+                  </div>
+                </div>
+                <div class="button">
+                  <input type="submit" value="Schedule">
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <section class="comingsoon container" id="comingsoon">
+      <!-- Heading-->
+      <div class="heading">
+        <h2 class="heading-title-2">Manage Promotions</h2>
+      </div>
+
+      <div id="promocodetable">
+        <table>
+          <thead>
+            <tr>
+              <th>Promo Code </th>
+              <th>Start Date</th>
+              <th>Expiry Date</th>
+              <th>Promo Code Value in $ </th>
+            </tr>
+          </thead>
+          <tbody class="promocodes" id="promocodes">
+          </tbody>
+
+        </table>
+
+        <div class="heading" id="promocodesection" onclick="promocode()">
+          <h2 class="heading-title">Add Promo code</h2>
+          <lord-icon src="https://cdn.lordicon.com/qrbokoyz.json" trigger="hover"
+            colors="primary:#ffffff,secondary:#ffffff" style="width:32px;height:32px"> </lord-icon>
+        </div>
+      </div>   
+      <div class="table-data" id="promocode" style="display: none;">
+        <div class="order">
+          <div class="head">
+            <div class="content">
+              <form id="promodetails" onsubmit="addpromodetails(event)">
+                <div class="user-details">
+                  <div class="input-box">
+                    <span class="details">Enter Promo Code</span>
+                    <input type="text" placeholder="Enter the promo code" name="promotionCode" required>
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">Start Date </span>
+                    <input type="date" placeholder="Start Date" name="startDate" required>
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">End Date</span>
+                    <input type="date" placeholder="End Date" name="endDate" required>
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">Promo code Value in $</span>
+                    <input type="number" placeholder="Enter the promo code value in $" min="1" name="promotional_Value" required>
+                  </div>
+
+                </div>
+                <div class="button">
+                  <input type="submit" value="Add Promocode">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+  </section>
+  <script src="js/main.js"></script>
+  <script>
+    function menuToggle() {
+      const toggleMenu = document.querySelector('.menu');
+      toggleMenu.classList.toggle('active')
+    }
+  </script>
+  <script>
+    var un = window.localStorage.getItem('userName');
+    document.getElementById("userName").innerHTML = un;
+    function check() {
+      window.localStorage.clear();
+      var url = window.location.href;
+      window.history.go(-window.history.length);
+      window.location.href = url;
+    }
+  </script>
+
+  <script src="js/adminmovies.js"></script>
+  <script src="js/promocode.js"></script>
+  <script src=""></script>
+  <SCRIPT>
+    function addmovie() {
+      var x = document.getElementById('addmovie');
+      if (x.style.display == 'none') {
+        x.style.display = 'block';
+      } else {
+        x.style.display = 'none';
+      }
+    }
+  </SCRIPT>
+  <SCRIPT>
+    function schedulemovie() {
+      var x = document.getElementById('schedulemovie');
+      if (x.style.display == 'none') {
+        x.style.display = 'block';
+      } else {
+        x.style.display = 'none';
+      }
+    }
+  </SCRIPT>
+
+  <SCRIPT>
+    function promocode() {
+      var x = document.getElementById('promocode');
+      if (x.style.display == 'none') {
+        x.style.display = 'block';
+      } else {
+        x.style.display = 'none';
+      }
+    }
+  </SCRIPT>
+  <script>
+    var timepicker = new TimePicker('time', {
+      lang: 'en',
+      theme: 'dark'
+    });
+    timepicker.on('change', function (evt) {
+
+      var value = (evt.hour || '00') + ':' + (evt.minute || '00') + ':' + (evt.seconds || '00');
+      evt.element.value = value;
+
+    });
+  </script>
+
+  <script src="js/addmovie.js"></script>
+  <script src="js/adminpagebuttons.js"></script>
+
+</body>
+
+</html>

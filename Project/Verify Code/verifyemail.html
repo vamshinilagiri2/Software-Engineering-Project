@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E-Movie booking System</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="verifystyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="webiste logo" href="imgs/logo.png" type="image/x-icon">
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script> 
+</head>
+<body>
+    <header>
+        <header>
+            <!-- Logo -->
+            <div class="nav container">
+                <a href="home.html" class="logo">
+                    Movie<span>booking</span>
+                </a>
+            <!-- Search Box-->
+            
+    
+            <!-- Edit this PART !!!!!!!-->
+    
+            <a href="login.html" class="user">
+            <lord-icon src="https://cdn.lordicon.com/dklbhvrt.json" trigger="hover" colors="primary:#ffffff" style="width:40px;height:40px"> </lord-icon>
+            Log in
+            </a>
+    </header>
+
+
+
+
+    <div class="form" style="text-align: center">
+        <h2> Verify your account </h2>
+        <p>We emailed you Four digit OTP code. Enter the code below to confirm your email </p>
+        <form action="" autocomplete="off" onsubmit="verifyemail(event)" id="verifyemail">
+            
+                <div class="fields-input">
+                    <input type="number" name="otp1" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
+                    <input type="number" name="otp2" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
+                    <input type="number" name="otp3" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
+                    <input type="number" name="otp4" class="otp_field" placeholder="0" min="0" max="9" required onpaste="false">
+
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Verify Code" class="button">
+                </div>
+        </form>
+
+    </div>
+    <script src="verifycode.js"></script>
+    <script src="validateemail-api.js"></script>
+
+    
+
+</body>
+
+</html>

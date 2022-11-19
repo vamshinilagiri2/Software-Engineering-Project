@@ -1,0 +1,129 @@
+<!-- Adapted from https://bbbootstrap.com/snippets/bootstrap-payment-form-floating-labels-and-order-details-59901544 -->
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+<style>
+  body {
+    background-color: var(--body-color);
+  }
+
+  :root {
+    --main-color: #ffb43a;
+    --hover-color: hsl(37, 94%, 57%);
+    --body-color: #1e1e2a;
+    --containercolor: #2d2e37;
+    --text-color: #fcfeff;
+
+}
+h3 {
+  text-align: center;
+	margin: 0px;
+  color: var(--main-color);
+  font-weight: 600px;
+  background-color: var(--containercolor);
+}
+h6 {
+  padding-top: 20px;
+}
+  
+</style> 
+	
+</head>
+<body>
+<div class="container mt-5 px-5">
+    <div class="row">
+        <div class="col-md-8">
+			    
+            <div class="card p-3">
+                <form method="post" action="#">
+                    <h3>Checkout</h3>
+                    <h6 class="text-uppercase">Personal information</h6>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your First Name" name="name" class="form-control" required></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your Last Name" name="name" class="form-control" required="required"> <span></span></div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="username@domain.com" name="name" class="form-control" required> <span></span></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="+1(932) 413-3864" name="name" class="form-control" required> <span></span></div>
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-4">
+                        <h6 class="text-uppercase">Billing Address</h6>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*Street Address</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*City</span></div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*State/Province</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*Zip code</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-4">
+                        <h6 class="text-uppercase">Payment details</h6>
+                        <div class="input mt-3">
+                          <input type="text" name="name" class="form-control" required> <span>*Name on card</span></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <i
+                                        class="fa fa-credit-card"></i> <span>*Card Number</span></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex flex-row">
+                                    <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*Expiration</span>
+                                    </div>
+                                    <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*CVV</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-4 d-flex justify-content-between">
+                        <button class="btn btn-success px-3" onclick="Registrationconfirmation.html">Previous
+                        </button>
+                        <button class="btn btn-success px-3"
+                                type="button">Submit Order
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+			
+            <div class="card card-blue p-3 text-black mb-3">
+              <p><h3>Your order</h3></p>
+                <c:forEach var="row" items="${result2.rows}">
+                    <h4>Movie: Avatar</h4>
+                </c:forEach>
+                <c:forEach var="row" items="${result.rows}">
+                    <h5>Theatre: UGA Theatre</h5> <br>
+                    <h5>Seats: A1,A2,A3</h5>
+                    <h5>Time: 01:30pm</h5>
+                </c:forEach>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
