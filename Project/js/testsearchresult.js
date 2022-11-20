@@ -64,50 +64,12 @@ function loadMovieDetails(){
     const searchListMovies = searchList.querySelectorAll('.search-list-item');
     searchListMovies.forEach(movie => {
         movie.addEventListener('click', async () => {
-          var url = new URL("http://localhost/Integration/Project/addmovie.html");
+          var url = new URL("http://localhost/Integration/Project/movieinformation.html");
           var title= document.getElementsByTagName("h3")[0].innerHTML;
           url.searchParams.append('title', title);
           window.location = url ;
-            // searchList.classList.add('hide-search-list');
-            // movieSearchBox.value = "";
-            // const result = await fetch(`http://localhost:8080/user/movieByTitle/${movieID}`);
-            // const movieDetails = await result.json();
-            // // console.log(movieDetails);
-            // displayMovieDetails(movieDetails);
+
         });
     });
 }
-
-// function displayMovieDetails(details){
-    // resultGrid.innerHTML = `
-    // <div class="swiper-wrapper">
-    //     <!-- Movie box 1-->
-    //     <div class="swiper-slide">
-    //         <div class="movie-box">
-    //             <img src="${details.Poster}" alt="" class="movie-box-img">
-    //             <div class="box-text">
-    //                 <h2 class="movie-title">${details.Title}</h2>
-    //                 <span class="movie-type">${details.Genre}</span>
-    //                 <br>
-    //                 <a href="https://youtu.be/qZmY2lT28B8" class="book-btn">
-    //                     <span>View Trailer</span> 
-    //                     <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
-    //                 </a>
-    //                 <a href="addmovie.html" class="book-btn">
-    //                 <span>Book ticket</span> 
-    //                 <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
-    //                 </a>
-    //             </div>
-    //         </div>  
-    //     </div>
-    // </div>
-    // `;
-// }
-
-// window.addEventListener('click', (event) => {
-//     if(event.target.className != "form-control"){
-//         searchList.classList.add('hide-search-list');
-//     }
-// });
-
 
