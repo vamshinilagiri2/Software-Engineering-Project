@@ -13,6 +13,9 @@
   <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/convertbase64.js"></script>
+
+
+  <script src="js/promocode.js"></script>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
@@ -328,27 +331,28 @@
       </div>
 
       <div id="promocodetable">
-        <table>
+        <table id="data_table">
           <thead>
             <tr>
               <th>Promo Code </th>
               <th>Start Date</th>
               <th>Expiry Date</th>
-              <th>Promo Code Value in $ </th>
+              <th>Value in $ </th>
             </tr>
           </thead>
           <tbody class="promocodes" id="promocodes">
           </tbody>
+          <tr>
+            <td><input type="text" id="new_promocode" /></td>
+            <td><input type="date" id="new_startdate" /></td>
+            <td><input type="date" id="new_enddate" /></td>
+            <td><input type="int" id="new_promovalue"></td>
+            <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+          </tr> 
 
         </table>
-
-        <div class="heading" id="promocodesection" onclick="promocode()">
-          <h2 class="heading-title">Add Promo code</h2>
-          <lord-icon src="https://cdn.lordicon.com/qrbokoyz.json" trigger="hover"
-            colors="primary:#ffffff,secondary:#ffffff" style="width:32px;height:32px"> </lord-icon>
-        </div>
       </div>   
-      <div class="table-data" id="promocode" style="display: none;">
+      <!-- <div class="table-data" id="promocode" style="display: none;">
         <div class="order">
           <div class="head">
             <div class="content">
@@ -382,7 +386,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
 
 
@@ -410,7 +414,7 @@
   </script>
 
   <script src="js/adminmovies.js"></script>
-  <script src="js/promocode.js"></script>
+
   <script src=""></script>
   <SCRIPT>
     function addmovie() {
@@ -458,6 +462,7 @@
 
   <script src="js/addmovie.js"></script>
   <script src="js/adminpagebuttons.js"></script>
+
 
 </body>
 

@@ -57,22 +57,26 @@ function displayMovieList(movies){
         `;
         searchList.appendChild(movieListItem);
     }
-    // loadMovieDetails();
+    loadMovieDetails();
 }
 
-// function loadMovieDetails(){
-//     const searchListMovies = searchList.querySelectorAll('.search-list-item');
-//     searchListMovies.forEach(movie => {
-//         movie.addEventListener('click', async () => {
-//             searchList.classList.add('hide-search-list');
-//             movieSearchBox.value = "";
-//             const result = await fetch(`http://localhost:8080/user/movieByTitle/${movieID}`);
-//             const movieDetails = await result.json();
-//             // console.log(movieDetails);
-//             displayMovieDetails(movieDetails);
-//         });
-//     });
-// }
+function loadMovieDetails(){
+    const searchListMovies = searchList.querySelectorAll('.search-list-item');
+    searchListMovies.forEach(movie => {
+        movie.addEventListener('click', async () => {
+          var url = new URL("http://localhost/Integration/Project/addmovie.html");
+          var title= document.getElementsByTagName("h3")[0].innerHTML;
+          url.searchParams.append('title', title);
+          window.location = url ;
+            // searchList.classList.add('hide-search-list');
+            // movieSearchBox.value = "";
+            // const result = await fetch(`http://localhost:8080/user/movieByTitle/${movieID}`);
+            // const movieDetails = await result.json();
+            // // console.log(movieDetails);
+            // displayMovieDetails(movieDetails);
+        });
+    });
+}
 
 // function displayMovieDetails(details){
     // resultGrid.innerHTML = `

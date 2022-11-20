@@ -80,9 +80,10 @@ function addmovieform(event) {
 			}
 
 		})
-	//.then(json => {
-	//window.location.reload(true);
-	//window.location = "http://localhost/Integration/Project/Registrationconfirmation.html";})
+	.then(json => {
+	window.location.reload(true);
+	//window.location = "http://localhost/Integration/Project/Registrationconfirmation.html";\
+	})
 
 }
 
