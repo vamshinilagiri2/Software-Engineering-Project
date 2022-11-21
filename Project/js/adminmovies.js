@@ -26,7 +26,17 @@ async function adminpagedetails() {
             ${i.category}
             </td>
             <td>
-              ${i.releasedate}
+              ${i.rating}
+            </td>
+            <td>
+            <div>
+            <lord-icon
+                src="https://cdn.lordicon.com/gsqxdxog.json"
+                trigger="hover"
+                colors="primary:#ffffff,secondary:#ffffff"
+                style="width:25px;height:25px">
+            </lord-icon>
+            </div>
             </td>
             
           </tr>

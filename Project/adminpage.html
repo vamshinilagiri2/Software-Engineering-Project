@@ -13,6 +13,7 @@
   <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/convertbase64.js"></script>
+  <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
 
 
   <script src="js/promocode.js"></script>
@@ -164,7 +165,7 @@
             <th> Movie Image </th>
             <th> Movie Title </th>
             <th> Movie Genre </th>
-            <th> Release Date </th>
+            <th> Movie Rating </th>
           </tr>
         </thead>
         <tbody id="movietable">
@@ -219,11 +220,6 @@
                 <div class="input-box">
                   <span class="details">Synopsis</span>
                   <input type="text" placeholder="Synopsis " name="synopsis" required>
-                </div>
-
-                <div class="input-box">
-                  <span class="details">review</span>
-                  <input type="text" placeholder="Movie Review" name="review" required>
                 </div>
 
                 <div class="input-box">
@@ -343,50 +339,15 @@
           <tbody class="promocodes" id="promocodes">
           </tbody>
           <tr>
-            <td><input type="text" id="new_promocode" /></td>
+            <td><input type="text" id="new_promocode" placeholder="promocode name"/></td>
             <td><input type="date" id="new_startdate" /></td>
             <td><input type="date" id="new_enddate" /></td>
-            <td><input type="int" id="new_promovalue"></td>
+            <td><input type="int" id="new_promovalue"placeholder="value in $"></td>
             <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
           </tr> 
 
         </table>
       </div>   
-      <!-- <div class="table-data" id="promocode" style="display: none;">
-        <div class="order">
-          <div class="head">
-            <div class="content">
-              <form id="promodetails" onsubmit="addpromodetails(event)">
-                <div class="user-details">
-                  <div class="input-box">
-                    <span class="details">Enter Promo Code</span>
-                    <input type="text" placeholder="Enter the promo code" name="promotionCode" required>
-                  </div>
-
-                  <div class="input-box">
-                    <span class="details">Start Date </span>
-                    <input type="date" placeholder="Start Date" name="startDate" required>
-                  </div>
-
-                  <div class="input-box">
-                    <span class="details">End Date</span>
-                    <input type="date" placeholder="End Date" name="endDate" required>
-                  </div>
-
-                  <div class="input-box">
-                    <span class="details">Promo code Value in $</span>
-                    <input type="number" placeholder="Enter the promo code value in $" min="1" name="promotional_Value" required>
-                  </div>
-
-                </div>
-                <div class="button">
-                  <input type="submit" value="Add Promocode">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </section>
 
 
