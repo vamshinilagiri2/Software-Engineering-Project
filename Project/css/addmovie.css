@@ -7,6 +7,15 @@
     justify-content: flex-end;
 }
 
+:root {
+    --main-color: #ffb43a;
+    --hover-color: hsl(37, 94%, 57%);
+    --body-color: #1e1e2a;
+    --containercolor: #2d2e37;
+    --text-color: #fcfeff;
+
+}
+
 .trailer-child-container {
     display: flex;
     align-items: center;
@@ -92,4 +101,13 @@
     display: table-row;
     margin-bottom: 24px;
     border-bottom: solid 1px #191919!important;
+}
+
+input[type="button"] {
+    position: relative;
+    right: -612px;
+    font-weight: 800;
+    color: var(--containercolor);
+    background-color: var(--main-color);
+    padding: 10px 25px;
 }

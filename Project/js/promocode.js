@@ -32,6 +32,41 @@ function save_row(no) {
 
     document.getElementById("edit_button" + no).style.display = "block";
     document.getElementById("save_button" + no).style.display = "none";
+
+    var promodata = {}
+    promodata.promotionCode = promocode_val.trim();
+    promodata.startDate = startdate_val
+    promodata.endDate = enddate_val
+    promodata.promotional_Value = promovalue_val
+
+    fetch("http://localhost:8080/editPromotion",
+        {
+
+            // Adding method type
+            method: "PUT",
+            // Adding body or contents to send
+            body: JSON.stringify(promodata),
+            // Adding headers to the request
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+            //mode: 'no-cors'
+        })
+
+        // Converting to JSON
+        .then(response => response.json())
+        .then(json => {
+            if (json.statusCode == 400) {
+                alert(json.statusMessage);
+            }
+            else {
+                alert("Promo Code saved Suceessfully");
+            }
+
+        })
+
 }
 
 function delete_row(no) {

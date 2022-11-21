@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="webiste logo" href="imgs/logo.png" type="image/x-icon">
     <script src="https://cdn.lordicon.com/xdjxvujz.js"></script> 
-    <link rel="stylesheet" href="css/cardstyle.css">
+    <link rel="stylesheet" href="css/cardstyle readonly.css">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="css/dropstyle.css">
 
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="css/signup/bootstrap.min.css">
     
     <!-- Style -->
-    <link rel="stylesheet" href="css/editprofile/edit-profile-style.css">
+    <link rel="stylesheet" href="css/editprofile/edit-profile-style readonly.css">
 </head>
 <body onload="loadUser()">
     <header>
@@ -47,14 +47,14 @@
                   <p id ="userName"> </p> 
               </h3>
               <ul>
-                  <li>
+                  <!--<li>
                       <span class="material-icons icons-size">person</span>
-                      <a href="Myprofile.html">My Profile</a>
-                  </li>
-                  <!-- <li>
+                      <a href="My Profile Info.html">My Profile</a>
+                  </li>-->
+                  <li>
                       <span class="material-icons icons-size">mode</span>
                       <a href="Manageprofile.html">Edit Profile</a>
-                  </li> -->
+                  </li>
                   <li>
                       <span class="material-icons icons-size">insert_comment</span>
                       <a href="#">Order History</a>
@@ -72,7 +72,7 @@
     <section class="nowplaying container" id="nowplaying">
         <!-- Heading-->
         <div class="heading" id="Managemoviessection">
-            <h2 class="heading-title-h2">Edit your Profile </h2>    
+            <h2 class="heading-title-h2">My Profile </h2>    
         </div>
 
     </section>
@@ -85,18 +85,18 @@
             <div class="row align-items-center justify-content-center">
               <div class="col-md-80 ">
                 <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
-                <form  method="post"   id="manageprofile" onsubmit= "Manageprofile(event)" name="manageprofile">
+                <form  method="post"   id="manageprofile"  name="manageprofile">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group first">
                         <label for="fname">First Name</label>
-                        <input type="text" class="form-control" placeholder="John" id="firstName" name="firstName" >
+                        <input type="text" class="form-control" placeholder="John" id="firstName" name="firstName" readonly >
                       </div>    
                     </div>
                     <div class="col-md-6">
                       <div class="form-group first">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Smith" id="lastName"  name="lastName">
+                        <input type="text" class="form-control" placeholder="Smith" id="lastName"  name="lastName" readonly>
                       </div>    
                     </div>
                   </div>
@@ -105,7 +105,7 @@
                     <div class="col-md-12">
                       <div class="form-group first">
                         <label for="username">User Name</label>
-                        <input type="text" class="form-control" placeholder="userName" id="uName" name="userName" maxlength="50" readonly style="cursor: not-allowed;">
+                        <input type="text" class="form-control" placeholder="userName" id="uName" name="userName" maxlength="50" readonly >
                       </div>    
                     </div>
                   </div>
@@ -114,7 +114,7 @@
                     <div class="col-md-12">
                       <div class="form-group first">
                         <label for="email">Email Address </label>
-                        <input type="email" class="form-control" placeholder="abcd@gmail.com" id="emailID" name="emailID"readonly style="cursor: not-allowed;">
+                        <input type="email" class="form-control" placeholder="abcd@gmail.com" id="emailID" name="emailID"readonly>
                       </div>    
                     </div>
                   </div>
@@ -123,13 +123,13 @@
                     <div class="col-md-6">
                       <div class="form-group first">
                         <label for="street">Street</label>
-                        <input type="text" class="form-control" placeholder="Street 123" id="street" name="street" maxlength="50" required>
+                        <input type="text" class="form-control" placeholder="Street 123" id="street" name="street" maxlength="50" readonly required>
                       </div>    
                     </div>
                     <div class="col-md-6">
                       <div class="form-group first">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" placeholder="Athens" id="city"  name="city" maxlength="50" required>
+                        <input type="text" class="form-control" placeholder="Athens" id="city"  name="city" maxlength="50" readonly required>
                       </div>    
                     </div>
                   </div>
@@ -138,13 +138,13 @@
                     <div class="col-md-6">
                       <div class="form-group first">
                         <label for="State"> State </label>
-                        <input type="text" class="form-control" placeholder="GA" id="state" name="state"  maxlength="2" required >
+                        <input type="text" class="form-control" placeholder="GA" id="state" name="state"  maxlength="2" readonly required >
                       </div>    
                     </div>
                     <div class="col-md-6">
                       <div class="form-group first">
                         <label for="zip">Zip Code </label>
-                        <input type="text" class="form-control" placeholder="30605" id="zipCode" name="zipCode" maxlength="50" required>
+                        <input type="text" class="form-control" placeholder="30605" id="zipCode" name="zipCode" maxlength="50" readonly  required>
                       </div>    
                     </div>
                     
@@ -153,35 +153,11 @@
                     <div class="col-md-12">
                       <div class="form-group first">
                         <label for="lname">Phone Number</label>
-                        <input type="text" class="form-control" placeholder="+00 000 000 0000" id="phoneNumber" name="phoneNumber">
+                        <input type="text" class="form-control" placeholder="+00 000 000 0000" id="phoneNumber" name="phoneNumber" readonly>
                       </div>    
                     </div>
                     
                   </div>
-                  <div class="row">
-
-                    <div class="col-md-6">
-                  
-                      <div class="form-group last mb-3">
-                        <label for="password">Old Password</label>
-                        <input type="password" class="form-control" placeholder="Your Password" id="oldpassword" name="oldpassword">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                  
-                      <div class="form-group last mb-3">
-                        <label for="password"> New Password</label>
-                        <input type="password" class="form-control" placeholder="Your Password" id="newpassword" name="newpassword">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                  
-                      <div class="form-group last mb-3">
-                        <label for="re-password">Confirm Password</label>
-                        <input type="password" class="form-control" placeholder="Your Password" id="confirmpassword" name="confirmpassword">
-                      </div>
-                    </div>
-                  </div>  
                   
                   <div class="d-flex1 ">
                     <label class="control control--checkbox mb-0"><span class="caption">Allow to Send Promotional mails </span>
@@ -190,13 +166,6 @@
                     </label>
                   </div>
                   
-                  
-                  <div class="d-flex mb-5 mt-4 align-items-center">
-                    <a href="">
-                        <input type="submit" value="Update changes" class="btn px-5 btn-primary" id="submit"> 
-                    </a>
-                    
-                  </div>
                   </div>
                   </div>
                  
@@ -242,13 +211,13 @@
         <div class="col-md-6">
           <div class="form-group first">
             <label for="street">Street</label>
-            <input type="text" class="form-control" placeholder="Street 123" id="street" name="billingstreet" maxlength="50" required>
+            <input type="text" class="form-control" placeholder="Street 123" id="street" name="billingstreet" maxlength="50" readonly required>
           </div>    
         </div>
         <div class="col-md-6">
           <div class="form-group first">
             <label for="city">City</label>
-            <input type="text" class="form-control" placeholder="Athens" id="city"  name="billingcity" maxlength="50" required>
+            <input type="text" class="form-control" placeholder="Athens" id="city"  name="billingcity" maxlength="50" readonly required>
           </div>    
         </div>
       </div>
@@ -257,13 +226,13 @@
         <div class="col-md-6">
           <div class="form-group first">
             <label for="State"> State </label>
-            <input type="text" class="form-control" placeholder="GA" id="state" name="billingstate"  maxlength="2" required >
+            <input type="text" class="form-control" placeholder="GA" id="state" name="billingstate"  maxlength="2" readonly required >
           </div>    
         </div>
         <div class="col-md-6">
           <div class="form-group first">
             <label for="zip">Zip Code </label>
-            <input type="text" class="form-control" placeholder="30605" id="zipCode" name="billingzipCode" maxlength="50" required>
+            <input type="text" class="form-control" placeholder="30605" id="zipCode" name="billingzipCode" maxlength="50" readonly required>
           </div>    
         </div>
         
@@ -372,11 +341,11 @@
       <div class="form-container">
           <div class="field-container">
               <label for="name">Name</label>
-              <input id="name" maxlength="20" type="text" name="name">
+              <input id="name" maxlength="20" type="text" name="name" readonly>
           </div>
           <div class="field-container">
               <label for="cardnumber">Card Number</label><span id="generatecard"></span>
-              <input id="cardnumber" type="text"  inputmode="numeric" name="cardnumber">
+              <input id="cardnumber" type="text"  inputmode="numeric" name="cardnumber" readonly>
               <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink">
     
@@ -384,21 +353,13 @@
           </div>
           <div class="field-container">
               <label for="expirationdate">Expiration (mm/yy)</label>
-              <input id="expirationdate" type="text"  inputmode="numeric" name="expirationdate">
+              <input id="expirationdate" type="text"  inputmode="numeric" name="expirationdate" readonly >
           </div>
           <div class="field-container">
               <label for="securitycode">Security Code</label>
-              <input id="securitycode" type="text"  inputmode="numeric" name="securitycode" maxlength="3">
+              <input id="securitycode" type="text"  inputmode="numeric" name="securitycode" maxlength="3" readonly>
           </div>
   
-          
-  
-          <div class="d-flex mb-5 mt-4 align-items-center">
-            <a href="">
-                <input type="submit" value="Update changes" class="btn px-5 btn-primary">
-                </a>
-            
-          </div>
       </div>
   
   
