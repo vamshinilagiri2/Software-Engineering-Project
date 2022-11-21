@@ -116,7 +116,7 @@ function displayMovieList(details){
                 </h2>
                 <div >
                     <a href="D:\Master's\Software-Engineering\Project\ticket-selection\index.html">
-                    <button type="button" class="button-class" id="button1">${screen101}</button>
+                    <button type="button" class="button-class" id="button1"></button>
                     <button type="button" class="button-class" id="button2">3:30pm</button>
                     <button type="button" class="button-class" id="button3">5:30pm</button>
                     </a>
