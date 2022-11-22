@@ -23,10 +23,28 @@ function onloadshowdetails() {
 }
 
 async function getshowdetails(Object){
+    var screenheader1 =document.getElementById("screen1header")
+    var screenheader2 =document.getElementById("screen2header")
+    var screenheader3 =document.getElementById("screen3header")
+    var screenheader4 =document.getElementById("screen4header")
+
+
     const screen1 = document.getElementById('screen1-buttons');
     const screen2 = document.getElementById('screen2-buttons');
     const screen3 = document.getElementById('screen3-buttons');
     const screen4 = document.getElementById('screen4-buttons');
+
+    screen1.innerHTML =""
+    screen2.innerHTML =""
+    screen3.innerHTML =""
+    screen4.innerHTML =""
+
+    screenheader1.style.display='none';
+    screenheader2.style.display='none';
+    screenheader3.style.display='none';
+    screenheader4.style.display='none';
+
+
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const title = urlParams.get('title')
@@ -37,16 +55,20 @@ async function getshowdetails(Object){
     var showdetailsdict ={}
     if(data.statusCode){
         if(Object.value=='2022-11-22'){
+            screenheader1.style.display='none';
+            screenheader2.style.display='none';
+            screenheader3.style.display='none';
+            screenheader4.style.display='none';
 
 
         }
         else {
             alert(data.statusMessage)
+            
 
 
         }
-        var time = document.getElementById("time-container")
-        time.style.display='none'
+
 
 
 
@@ -70,6 +92,7 @@ async function getshowdetails(Object){
         var four=showdetailsdict[4]
         console.log(one)
         if(one) {
+            screenheader1.style.display='block'
             one.forEach(element => {
                 screen1.innerHTML += `
                 <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/ticket-selection/index.html';">${element}</button>
@@ -79,11 +102,12 @@ async function getshowdetails(Object){
     
         }
         else {
-            var screenheader1 =document.getElementById("screen1header")
+            screen1.innerHTML =""
             screenheader1.style.display='none';
         }
     
         if(two) {
+            screenheader2.style.display='block'
             two.forEach(element => {
                 screen2.innerHTML += `
                 <button type="button" class="button-class" id="button1" onclick="http://localhost/Integration/Project/ticket-selection/index.html";>${element}</button>
@@ -93,12 +117,13 @@ async function getshowdetails(Object){
     
         }
         else {
-            var screenheader2 =document.getElementById("screen2header")
+            screen2.innerHTML =""
             screenheader2.style.display='none';
         }
     
     
         if(three) {
+            screenheader3.style.display='block'
             three.forEach(element => {
                 screen3.innerHTML += `
                 <button type="button" class="button-class" id="button1" onclick="http://localhost/Integration/Project/ticket-selection/index.html">${element}</button>
@@ -108,11 +133,12 @@ async function getshowdetails(Object){
     
         }
         else {
-            var screenheader3 =document.getElementById("screen3header")
+            screen3.innerHTML =""
             screenheader3.style.display='none';
         }
     
         if(four) {
+            screenheader4.style.display='block'
             four.forEach(element => {
                 screen4.innerHTML += `
                 <button type="button" class="button-class" id="button1" onclick="http://localhost/Integration/Project/ticket-selection/index.html">${element}</button>
@@ -122,7 +148,7 @@ async function getshowdetails(Object){
     
         }
         else {
-            var screenheader4 =document.getElementById("screen4header")
+            screen4.innerHTML =""
             screenheader4.style.display='none';
         }
         
