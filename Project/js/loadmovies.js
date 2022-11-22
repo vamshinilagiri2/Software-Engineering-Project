@@ -60,7 +60,7 @@ async function moviesonhomepage()
                                 <span>View Trailer</span> 
                                 <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
                             </a>
-                            <a href="addmovie.html" class="book-btn">
+                            <a href="#" class="book-btn" onclick="moviecarddetails()">
                             <span>Book ticket</span> 
                             <lord-icon src="https://cdn.lordicon.com/ucvsemjq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
                             </a>
@@ -77,6 +77,22 @@ async function moviesonhomepage()
     }
 
 
+
+
+}
+function moviecarddetails(){
+    const searchListMovies = searchList.querySelectorAll('.swiper-wrapper');
+    searchListMovies.forEach(movie => {
+        console.log(movie)
+        console.log("--------")
+        movie.addEventListener('click', async () => {
+            var url = new URL("http://localhost/Integration/Project/movieinformation.html");
+            var title= movie.getAttribute("data-id");
+            url.searchParams.append('title', title);
+            window.location = url ;
+
+        });
+    });
 }
 
 

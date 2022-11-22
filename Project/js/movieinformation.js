@@ -1,5 +1,7 @@
 const resultGrid = document.getElementById('addmovie-container');
 
+
+
 // load movies from API
 async function loadMovies(){
     const queryString = window.location.search;
@@ -14,6 +16,120 @@ async function loadMovies(){
 
     if(res.ok == true)  displayMovieList(data);
 }
+
+
+function onloadshowdetails() {
+    getshowdetails({value:"2022-11-22"})
+}
+
+async function getshowdetails(Object){
+    const screen1 = document.getElementById('screen1-buttons');
+    const screen2 = document.getElementById('screen2-buttons');
+    const screen3 = document.getElementById('screen3-buttons');
+    const screen4 = document.getElementById('screen4-buttons');
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const title = urlParams.get('title')
+    const URL = `http://localhost:8080/getShowDetailsByTitleAndShowDate/?title=${title}&showDate=${Object.value}`;
+    const res = await fetch(URL);
+    const data = await res.json();
+    console.log(data)
+    var showdetailsdict ={}
+    if(data.statusCode){
+        alert(data.statusMessage)
+        var time = document.getElementById("time-container")
+        time.style.display='none'
+
+
+    }
+    else if (data.rstatus.statusCode==200){
+
+        for (const showdata of data.showDetailsList) {
+            var screenId = showdata.showId.screen.screenID
+            if(screenId in showdetailsdict) {
+                showdetailsdict[screenId].push(showdata.showId.showTime)
+            }
+            else {
+                showdetailsdict[screenId]=[]
+                showdetailsdict[screenId].push(showdata.showId.showTime)
+            }
+        }
+        console.log(showdetailsdict)
+        var one=showdetailsdict[1]
+        var two=showdetailsdict[2]
+        var three=showdetailsdict[3]
+        var four=showdetailsdict[4]
+        console.log(one)
+        if(one) {
+            one.forEach(element => {
+                screen1.innerHTML += `
+                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/ticket-selection/index.html';">${element}</button>
+                `;
+                
+            });
+    
+        }
+        else {
+            var screenheader1 =document.getElementById("screen1header")
+            screenheader1.style.display='none';
+        }
+    
+        if(two) {
+            two.forEach(element => {
+                screen2.innerHTML += `
+                <button type="button" class="button-class" id="button1" onclick="http://localhost/Integration/Project/ticket-selection/index.html";>${element}</button>
+                `;
+                
+            });
+    
+        }
+        else {
+            var screenheader2 =document.getElementById("screen2header")
+            screenheader2.style.display='none';
+        }
+    
+    
+        if(three) {
+            three.forEach(element => {
+                screen3.innerHTML += `
+                <button type="button" class="button-class" id="button1" onclick="http://localhost/Integration/Project/ticket-selection/index.html">${element}</button>
+                `;
+                
+            });
+    
+        }
+        else {
+            var screenheader3 =document.getElementById("screen3header")
+            screenheader3.style.display='none';
+        }
+    
+        if(four) {
+            four.forEach(element => {
+                screen4.innerHTML += `
+                <button type="button" class="button-class" id="button1" onclick="http://localhost/Integration/Project/ticket-selection/index.html">${element}</button>
+                `;
+                
+            });
+    
+        }
+        else {
+            var screenheader4 =document.getElementById("screen4header")
+            screenheader4.style.display='none';
+        }
+        
+    }
+    
+
+
+
+
+    
+}
+
+
+
+
+
 
 function displayMovieList(details){
     // for (const element of details.showdetails) {
@@ -98,6 +214,7 @@ function displayMovieList(details){
     </div></div>
 </div>
 
+
 <div>
 
 
@@ -108,51 +225,40 @@ function displayMovieList(details){
         </div>
         <div class="date-container container">
             <h2 class="heading-title">Select date</h2>
-            <input type="date" value="2022-09-30" />
+            <input type="date" value="2022-11-22" onChange="getshowdetails(this)" id="showdate" />
         </div>
-        <div class="time-container">
+        <div class="time-container" id="time-container">
+
             <div class="date-time-container container">
-                <h2 class="heading-title theatre-container">
+                <h2 class="heading-title theatre-container" id="screen1header">
                     UGA Theatre - Screen 1
                 </h2>
-                <div >
-                    <a href="D:\Master's\Software-Engineering\Project\ticket-selection\index.html">
-                    <button type="button" class="button-class" id="button1">4:30pm</button>
-                    <button type="button" class="button-class" id="button2">3:30pm</button>
-                    <button type="button" class="button-class" id="button3">5:30pm</button>
-                    </a>
+                <div class="screen1-buttons" id="screen1-buttons">
+
                 </div>
             </div>
             <div class="date-time-container container">
-                <h2 class="heading-title theatre-container">
+                <h2 class="heading-title theatre-container" id="screen2header">
                     UGA Theatre - Screen 2
                 </h2>
-                <div >
-                    <button type="button" class="button-class" id="button1">11:30am</button>
-                    <button type="button" class="button-class" id="button2">1:30pm</button>
-                    <button type="button" class="button-class" id="button3">3:30pm</button>
-                    <button type="button" class="button-class" id="button3">5:30pm</button>
-                    <button type="button" class="button-class" id="button3">6:30pm</button>
+                <div class="screen2-buttons" id="screen2-buttons" >
+
                 </div>
             </div>
             <div class="date-time-container container">
-                <h2 class="heading-title theatre-container">
+                <h2 class="heading-title theatre-container" id="screen3header">
                     UGA Theatre - Screen 3
                 </h2>
-                <div >
-                    <button type="button" class="button-class" id="button1">11:30pm</button>
-                    <button type="button" class="button-class" id="button2">1:30pm</button>
-                    <button type="button" class="button-class" id="button3">7:30pm</button>
+                <div class="screen3-buttons" id="screen3-buttons" >
+
                 </div>
             </div>
             <div class="date-time-container container">
-                <h2 class="heading-title theatre-container">
+                <h2 class="heading-title theatre-container" id="screen4header">
                     UGA Theatre - Screen 4
                 </h2>
-                <div>
-                    <button type="button" class="button-class" id="button1">1:30pm</button>
-                    <button type="button" class="button-class" id="button2">3:30pm</button>
-                    <button type="button" class="button-class" id="button3">5:30pm</button>
+                <div class="screen4-buttons" id="screen4-buttons" >
+
                 </div>
             </div>
         </div>
