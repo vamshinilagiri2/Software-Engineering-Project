@@ -36,9 +36,18 @@ async function getshowdetails(Object){
     console.log(data)
     var showdetailsdict ={}
     if(data.statusCode){
-        alert(data.statusMessage)
+        if(Object.value=='2022-11-22'){
+
+
+        }
+        else {
+            alert(data.statusMessage)
+
+
+        }
         var time = document.getElementById("time-container")
         time.style.display='none'
+
 
 
     }

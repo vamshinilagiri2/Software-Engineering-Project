@@ -41,7 +41,7 @@ html::-webkit-scrollbar-thumb {
 body {
     background: var(--body-color);
     color: var(--text-color);
-    
+    padding-bottom: 250px;
 
 }
 section {
