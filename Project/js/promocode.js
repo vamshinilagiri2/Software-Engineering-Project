@@ -7,18 +7,19 @@ function edit_row(no) {
     var enddate = document.getElementById("enddate_row" + no);
     var promovalue = document.getElementById("promovalue_row" + no);
 
-    var promocode_data = promocode.innerHTML;
-    var startdate_data = startdate.innerHTML;
-    var enddate_data = enddate.innerHTML;
-    var promovalue_data = promovalue.innerHTML;
+    var promocode_data = promocode.innerHTML.trim();
+    var startdate_data = startdate.innerHTML.trim();
+    var enddate_data = enddate.innerHTML.trim();
+    var promovalue_data = promovalue.innerHTML.trim();
 
-    promocode.innerHTML = "<input type='text' id='promocode_text"+no+" 'value='"+promocode_data+"' readonly cursor: not-allowed;>";
+    promocode.innerHTML = "<input type='text' id='promocode_text"+ no + "' value='" + promocode_data+"' readonly stylecursor: not-allowed;>";
     startdate.innerHTML = "<input type='date' id='startdate_text" + no + "' value='" + startdate_data + "'>";
     enddate.innerHTML = "<input type='date' id='enddate_text" + no + "' value='" + enddate_data + "'>";
     promovalue.innerHTML = "<input type='number' id='promovalue_text" + no + "' value='" + promovalue_data + "'>";
 }
 
 function save_row(no) {
+    console.log(document.getElementById("promocode_text" + no))
     var promocode_val = document.getElementById("promocode_text" + no).value;
     var startdate_val = document.getElementById("startdate_text" + no).value;
     var enddate_val = document.getElementById("enddate_text" + no).value;
