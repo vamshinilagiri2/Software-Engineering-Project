@@ -12,7 +12,7 @@ function edit_row(no) {
     var enddate_data = enddate.innerHTML;
     var promovalue_data = promovalue.innerHTML;
 
-    promocode.innerHTML = "<input type='text' id='promocode_text" + no + "' value='" + promocode_data + "' readonly cursor: not-allowed;>";
+    promocode.innerHTML = "<input type='text' id='promocode_text"+no+" 'value='"+promocode_data+"' readonly cursor: not-allowed;>";
     startdate.innerHTML = "<input type='date' id='startdate_text" + no + "' value='" + startdate_data + "'>";
     enddate.innerHTML = "<input type='date' id='enddate_text" + no + "' value='" + enddate_data + "'>";
     promovalue.innerHTML = "<input type='number' id='promovalue_text" + no + "' value='" + promovalue_data + "'>";
