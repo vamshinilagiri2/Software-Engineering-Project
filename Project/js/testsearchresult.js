@@ -39,7 +39,7 @@ function displayMovieList(movies){
     }
     for(let idx = 0; idx < movies.length; idx++){
         let movieListItem = document.createElement('div');
-        movieListItem.dataset.id = movies[idx].movieID; // setting movie id in  data-id
+        movieListItem.dataset.id = movies[idx].title; // setting movie id in  data-id
         movieListItem.classList.add('search-list-item');
         if(movies[idx].picture != "N/A")
             moviePoster = movies[idx].picture;
@@ -63,9 +63,11 @@ function displayMovieList(movies){
 function loadMovieDetails(){
     const searchListMovies = searchList.querySelectorAll('.search-list-item');
     searchListMovies.forEach(movie => {
+        console.log(movie)
+        console.log("--------")
         movie.addEventListener('click', async () => {
           var url = new URL("http://localhost/Integration/Project/movieinformation.html");
-          var title= document.getElementsByTagName("h3")[0].innerHTML;
+          var title= movie.getAttribute("data-id");
           url.searchParams.append('title', title);
           window.location = url ;
 
