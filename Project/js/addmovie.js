@@ -101,12 +101,11 @@ function schedulemovieform(event) {
 	console.log(...formData1)
 	dataToSend = Object.fromEntries(formData1);
 
-	var requestBody = { showdetails: [] }
 	// requestBody.title=Avengers
 	var screen = {}
 	screen.screenID = dataToSend["screenID"]
-	var show = { showDate: dataToSend["showDate"], showDuration: dataToSend["showDuration"], showTime: dataToSend["showTime"], screen: screen }
-	requestBody.showdetails.push(show)
+	var showId = { showDate: dataToSend["showDate"], showTime: dataToSend["showTime"], screen: screen }
+	var requestBody= {showDuration: dataToSend["showDuration"], showId: showId}
 	// requestBody.screenID=dataToSend["screenID"]
 	// requestBody.showDate=dataToSend["showDate"]
 	// requestBody.showDuration = dataToSend["showDuration"]
@@ -117,7 +116,7 @@ function schedulemovieform(event) {
 		{
 
 			// Adding method type
-			method: "PUT",
+			method: "POST",
 			// Adding body or contents to send
 			body: JSON.stringify(requestBody),
 			// Adding headers to the request
@@ -136,8 +135,8 @@ function schedulemovieform(event) {
 			if (json.statusCode == 400) {
 				alert(json.statusMessage);
 			}
-			else {
-				alert("Show Added Suceessfully");
+			else if(json.rstatus.statusCode==200) {
+				alert(json.rstatus.statusMessage);
 			}
 
 		})
