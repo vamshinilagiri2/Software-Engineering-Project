@@ -55,11 +55,6 @@ async function getshowdetails(Object){
     var showdetailsdict ={}
     if(data.statusCode){
         if(Object.value=='2022-11-22'){
-            screenheader1.style.display='none';
-            screenheader2.style.display='none';
-            screenheader3.style.display='none';
-            screenheader4.style.display='none';
-
 
         }
         else {
