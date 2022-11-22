@@ -56,7 +56,7 @@
                 <lord-icon src="https://cdn.lordicon.com/igpbsrza.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
                 <span class="nav-link-title">Home</span >
             </a> 
-            <a href="#nowplaying" class="nav-link">
+            <a href="#Nowplaying" class="nav-link">
                 <lord-icon src="https://cdn.lordicon.com/axyzxviq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
                 <span class="nav-link-title">Latest Movies</span >
             </a>
@@ -75,10 +75,7 @@
     
             <div class="menu">
                 <h3>
-                    Team A7
-                    <div>
-                        Registered User
-                    </div>
+                    <p id="userName"> </p>
                 </h3>
                 <ul>
                     <li>
@@ -202,6 +199,16 @@
             }
         }
     </SCRIPT>
+    <script>
+    var un = window.localStorage.getItem('userName');
+    document.getElementById("userName").innerHTML = un;
+    function check() {
+        window.localStorage.clear();
+        var url = window.location.href;
+        window.history.go(-window.history.length);
+        window.location.href = url;
+    }
+    </script>
     
 </body>
 </html>
