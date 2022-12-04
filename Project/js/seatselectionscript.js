@@ -20,6 +20,7 @@ let ticketPrice = +movieSelect.value;
 function moviename() {
   movienameonpage.innerHTML = `
   <label>Movie Name :  <span style="padding-left:10px;"> ${title}</span></label><br>
+  
   `;
 
   proceedbtn.innerHTML= `
