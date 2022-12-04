@@ -35,7 +35,7 @@ h6 {
 </style> 
 	
 </head>
-<body>
+<body onload="orderdetails()">
 <div class="container mt-5 px-5">
     <div class="row">
         <div class="col-md-8">
@@ -111,19 +111,20 @@ h6 {
         </div>
         <div class="col-md-4">
 			
-            <div class="card card-blue p-3 text-black mb-3">
+            <div class="card card-blue p-3 text-black mb-3" id= "orderdetailscard">
               <p><h3>Your order</h3></p>
-                <c:forEach var="row" items="${result2.rows}">
+                <!-- <c:forEach var="row" items="${result2.rows}">
                     <h4>Movie: Avatar</h4>
                 </c:forEach>
                 <c:forEach var="row" items="${result.rows}">
                     <h5>Theatre: UGA Theatre</h5> <br>
                     <h5>Seats: A1,A2,A3</h5>
                     <h5>Time: 01:30pm</h5>
-                </c:forEach>
+                </c:forEach> -->
             </div>
         </div>
     </div>
 </div>
+<script src="js/checkout.js"></script>
 </body>
 </html>

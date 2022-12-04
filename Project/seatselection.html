@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="css/seatselectionstyle.css" />
     <title>Movie Seat Booking</title>
   </head>
-  <body>
+  <body onload="moviename()">
 
 
 
-    <div class="movie-container">
-      <label>Movie Name :  <span style="padding-left:10px;"> Avatar</span></label>
-      <input type="hidden" id="movie" name="Name" placeholder="Selected Movie Name" value="15">
+    <div class="movie-container" id="movie-container">
+      <!-- Movie Name goes here  -->
     </div>
+    <br>
 
     <ul class="showcase">
       <li>
@@ -36,86 +36,89 @@
     <div class="container">
       <div class="screen"></div>
       <div class="row">
-        <div class="seat">Seat</div>
-        <div class="seat">1</div>
-        <div class="seat">2</div>
-        <div class="seat">3</div>
-        <div class="seat">4</div>
-        <div class="seat">5</div>
-        <div class="seat">6</div>
-        <div class="seat">7</div>
+        <div class="seat occupied">Seat</div>
+        <div class="seat occupied" >1</div>
+        <div class="seat occupied">2</div>
+        <div class="seat occupied">3</div>
+        <div class="seat occupied">4</div>
+        <div class="seat occupied">5</div>
+        <div class="seat occupied">6</div>
+        <div class="seat occupied">7</div>
       </div>
       <div class="row">
-        <div class="seat">A</div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+        <div class="seat occupied">A</div>
+        <div class="seat" id="A1"></div>
+        <div class="seat" id="A2"></div>
+        <div class="seat" id="A3"></div>
+        <div class="seat" id="A4"></div>
+        <div class="seat" id="A5"></div>
+        <div class="seat" id="A6"></div>
+        <div class="seat" id="A7"></div>
       </div>
       <div class="row">
-        <div class="seat">B</div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-
-      <div class="row">
-        <div class="seat">C</div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
+        <div class="seat occupied">B</div>
+        <div class="seat" id="B1"></div>
+        <div class="seat" id="B2"></div>
+        <div class="seat occupied" id="B3"></div>
+        <div class="seat occupied" id="B4"></div>
+        <div class="seat" id="B5"></div>
+        <div class="seat" id="B6"></div>
+        <div class="seat" id="B7"></div>
       </div>
 
       <div class="row">
-        <div class="seat">D</div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+        <div class="seat occupied">C</div>
+        <div class="seat" id="C1"></div>
+        <div class="seat" id="C2"></div>
+        <div class="seat" id="C3"></div>
+        <div class="seat" id="C4"></div>
+        <div class="seat" id="C5"></div>
+        <div class="seat occupied" id="C6"></div>
+        <div class="seat occupied" id="C7"></div>
       </div>
 
       <div class="row">
-        <div class="seat">E</div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+        <div class="seat occupied">D</div>
+        <div class="seat" id="D1"></div>
+        <div class="seat" id="D2"></div>
+        <div class="seat" id="D3"></div>
+        <div class="seat" id="D4"></div>
+        <div class="seat" id="D5"></div>
+        <div class="seat" id="D6"></div>
+        <div class="seat" id="D7"></div>
       </div>
 
       <div class="row">
-        <div class="seat">F</div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
+        <div class="seat occupied">E</div>
+        <div class="seat" id="E1"></div>
+        <div class="seat" id="E2"></div>
+        <div class="seat occupied" id="E3"></div>
+        <div class="seat occupied" id="E4"></div>
+        <div class="seat" id="E5"></div>
+        <div class="seat" id="E6"></div>
+        <div class="seat" id="E7"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat occupied">F</div>
+        <div class="seat" id="F1"></div>
+        <div class="seat" id="F2"></div>
+        <div class="seat" id="F3"></div>
+        <div class="seat occupied" id="F4"></div>
+        <div class="seat occupied" id="F5"></div>
+        <div class="seat occupied" id="F6"></div>
+        <div class="seat" id="F7"></div>
       </div>
     </div>
 
     <p class="text">
       You have selected <span id="count">0</span> seats for a price of $<span id="total">0</span>
     </p>
-    <div><a href="D:\Master's\Software-Engineering\Project\order-summary\index.html">
-        <input type="button"  value="Proceed" class="btn"></div></a>
+    <div id="proceedbtn">
+      <a href="http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${element}&Showdate=${showdate}';">
+        <input type="button"  value="Proceed" class="btn" >
+      </a>
+    </div>
     <script src="js/seatselectionscript.js"></script>
   </body>
 </html>

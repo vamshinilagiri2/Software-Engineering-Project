@@ -1,11 +1,35 @@
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const title = urlParams.get('title')
+const showtime = urlParams.get('showtime')
+const showdate = urlParams.get('showdate')
 const container = document.querySelector('.container');
 const seats = document.querySelectorAll('.row .seat:not(.occupied');
 const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
+const movienameonpage = document.getElementById('movie-container');
+const proceedbtn = document.getElementById('proceedbtn');
+
+
+var seatsselected=[];
 
 populateUI();
 let ticketPrice = +movieSelect.value;
+
+function moviename() {
+  movienameonpage.innerHTML = `
+  <label>Movie Name :  <span style="padding-left:10px;"> ${title}</span></label><br>
+  `;
+
+  proceedbtn.innerHTML= `
+  <a href="http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${showtime}&showdate=${showdate}">
+    <input type="button"  value="Proceed" class="btn" >
+  </a>
+  `;
+}
+
+
 
 // Save selected movie index and price
 function setMovieData(movieIndex, moviePrice) {
@@ -29,6 +53,7 @@ function updateSelectedCount() {
 
   count.innerText = selectedSeatsCount;
   total.innerText = selectedSeatsCount * ticketPrice;
+
 }
 
 // get data from localstorage and populate ui
@@ -60,8 +85,26 @@ movieSelect.addEventListener('change', (e) => {
 container.addEventListener('click', (e) => {
   if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
     e.target.classList.toggle('selected');
+    if(seatsselected.includes(e.target.id)) {
+      for( var i = 0; i < seatsselected.length; i++){ 
+    
+        if ( seatsselected[i] === e.target.id) { 
+    
+          seatsselected.splice(i, 1); 
+        }
+    
+    }
+
+
+    } 
+    else {
+      seatsselected.push(e.target.id)
+    }
+    console.log(seatsselected)
+    console.log(seatsselected.length)
 
     updateSelectedCount();
+
   }
 });
 
