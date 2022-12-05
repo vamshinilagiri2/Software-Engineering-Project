@@ -64,7 +64,6 @@
 
 .label {
   font-weight: var(--fw-large);
-  font-size: var(--fs-paragraph);
   color: var(--primary-color);
 }
 
