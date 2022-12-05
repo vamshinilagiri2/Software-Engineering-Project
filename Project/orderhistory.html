@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>E-Movie booking System</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/adminstyle.css">
+  <link rel="stylesheet" href="css/orderhistory.css">
+  <link rel="stylesheet" href="css/admindropstyle.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="webiste logo" href="imgs/logo.png" type="image/x-icon">
+  <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/convertbase64.js"></script>
+  <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+
+
+  <script src="js/promocode.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+  <!-- <script src="js/nopastdate.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet" />
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet">
+</head>
+
+<body onload="orderhistory()">
+  <header>
+    <!-- Logo -->
+    <div class="nav container">
+      <a href="home.html" class="logo">
+        Movie<span>booking</span>
+      </a>
+
+
+      <div class="action" style="position:relative; right:-220px; top:20px;">
+        <div class="profile" onclick="menuToggle();">
+          <img src="imgs/user.png" alt="">
+        </div>
+
+        <div class="menu">
+          <h3>
+            <p id="userName"> </p>
+          </h3>
+          <ul>
+            <li>
+              <span class="material-icons icons-size">person</span>
+              <a href="Myprofile.html">My Profile</a>
+            </li>
+            <li>
+              <span class="material-icons icons-size">mode</span>
+              <a href="Manageprofile.html">Edit Profile</a>
+            </li>
+            <li>
+              <span class="material-icons icons-size">insert_comment</span>
+              <a href="orderhistory.html">Booking History</a>
+            </li>
+            <li>
+              <span class="material-icons icons-size">logout </span>
+              <a href="home.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+      <style>
+        input#name-field {
+          height: 45px;
+          width: 250px;
+          outline: none;
+          margin-left: 20px;
+          font-size: 16px;
+          border-radius: 5px;
+          padding-left: 15px;
+          border: 1px solid #ccc;
+          border-bottom-width: 2px;
+          transition: all 0.3s ease;
+        }
+
+        input#age-field {
+          height: 45px;
+          width: 250px;
+          outline: none;
+          font-size: 16px;
+          margin-left: 20px;
+          border-radius: 5px;
+          padding-left: 15px;
+          border: 1px solid #ccc;
+          border-bottom-width: 2px;
+          transition: all 0.3s ease;
+        }
+
+        input#city-field {
+          height: 45px;
+          outline: none;
+          width: 250px;
+          font-size: 16px;
+          border-radius: 5px;
+          margin-left: 20px;
+          padding-left: 15px;
+          border: 1px solid #ccc;
+          border-bottom-width: 2px;
+          transition: all 0.3s ease;
+        }
+
+        button#add-btn {
+          position: relative;
+          right: -50px;
+          bottom: -10px;
+        }
+      </style>
+    </div>
+  </header>
+
+  <!-- Landing page sections-->
+  <section class="nowplaying container" id="nowplaying">
+    <!-- Heading-->
+    <div class="heading" id="Managemoviessection">
+      <h2 class="heading-title-h2">Booking history</h2>
+    </div>
+    <section class="product" id="orderhistorycard">
+      <!-- <div class="product__photo">
+          <div class="photo-main">
+              <img src="imgs/alien.jpg" alt="green apple slice">
+          </div>
+      </div>
+      <div class="product__info">
+          <div class="title">
+              <h1>Movie Name </h1>
+              <span>Booking ID: 45999</span>
+          </div>
+          <div class="description">
+              <ul>
+                  <li>Show Date: 01-01-01</li>
+                  <li>Show time: 10:00:00</li>
+                  <li>Number of tickets purchased: x4</li>
+              </ul>
+          </div>
+          <div class="price">
+              <span>$7.93</span>
+          </div>
+      </div> -->
+    </section>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script>
+    function menuToggle() {
+      const toggleMenu = document.querySelector('.menu');
+      toggleMenu.classList.toggle('active')
+    }
+  </script>
+
+  <script>
+    var un = window.localStorage.getItem('userName');
+    document.getElementById("userName").innerHTML = un;
+    function check() {
+      window.localStorage.clear();
+      var url = window.location.href;
+      window.history.go(-window.history.length);
+      window.location.href = url;
+    }
+  </script>
+  <script src="js/orderhistory.js"></script>
+
+</body>
+
+</html>
