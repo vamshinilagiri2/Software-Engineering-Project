@@ -31,6 +31,16 @@ h3 {
 h6 {
   padding-top: 20px;
 }
+
+.d-flex.flex-row {
+    position: relative;
+    bottom: -23px;
+}
+
+span.cardnumberdetails {
+    position: relative;
+    bottom: -10px;
+}
   
 </style> 
 	
@@ -46,55 +56,65 @@ h6 {
                     <h6 class="text-uppercase">Personal information</h6>
                     <div class="row mt-3">
                         <div class="col-md-6">
-                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your First Name" name="name" class="form-control" required></div>
+                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your First Name" name="firstName" id="firstName" class="form-control" required></div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your Last Name" name="name" class="form-control" required="required"> <span></span></div>
+                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your Last Name" name="lastName"  id="lastName" class="form-control" required="required"> <span></span></div>
                         </div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6">
-                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="username@domain.com" name="name" class="form-control" required> <span></span></div>
+                        <div class="col-md-6"> 
+                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="username@gmail.com" name="emailID" id="emailID" class="form-control" required> <span></span></div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="+1(932) 413-3864" name="name" class="form-control" required> <span></span></div>
+                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="+1(932) 413-3864" name="phoneNumber"  id="phoneNumber" class="form-control" required> <span></span></div>
                         </div>
                     </div>
                     <div class="mt-4 mb-4">
                         <h6 class="text-uppercase">Billing Address</h6>
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*Street Address</span>
+                                <div class="input mt-3 mr-2"><input type="text" name="street" id="street" class="form-control" required> <span>Street Address*</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*City</span></div>
+                                <div class="input mt-3 mr-2"><input type="text" name="city" id="city" class="form-control" required> <span>City*</span></div>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*State/Province</span>
+                                <div class="input mt-3 mr-2"><input type="text" name="state" id="state" class="form-control" required> <span>*State/Province*</span>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*Zip code</span></div>
+                                <div class="input mt-3 mr-2"><input type="text" name="zipCode" id="zipCode" class="form-control" required> <span>Zip code*</span></div>
                             </div>
                         </div>
                     </div>
                     <div class="mt-4 mb-4">
                         <h6 class="text-uppercase">Payment details</h6>
+                        <div class="input-box">
+                            <span class="details">Choose from saved payment cards </span> <br>
+                            <input list="userpaymentcardslist" type="text" placeholder="saved cards" name="userpaymentcardslist" class="form-control" required >
+                            <datalist id="userpaymentcardslist">
+        
+                            </datalist>
+        
+                        </div>
                         <div class="input mt-3">
-                          <input type="text" name="name" class="form-control" required> <span>*Name on card</span></div>
+                            <span class="details"> Card holder name*</span> <br>
+                          <input type="text" name="cardholdername" id="cardholdername" class="form-control" required> <span></span></div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <i
-                                        class="fa fa-credit-card"></i> <span>*Card Number</span></div>
+                                <span class="cardnumberdetails">Card Number* </span> <br>
+                                <div class="input mt-3 mr-2"><input type="text" name="cardnumber" id="cardnumber" class="form-control" required> <i
+                                        class="fa fa-credit-card"></i> <span></span></div>
                             </div>
                             <div class="col-md-6">
                                 <div class="d-flex flex-row">
-                                    <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*Expiration</span>
+                                    <div class="input mt-3 mr-2"><input type="month" placeholder="05/22" name="exp" id="exp" class="form-control" required> <span>Expiry date*</span>
                                     </div>
-                                    <div class="input mt-3 mr-2"><input type="text" name="name" class="form-control" required> <span>*CVV</span></div>
+                                    <div class="input mt-3 mr-2"><input type="password" name="cvv" id="cvv" class="form-control" required maxlength="3"> <span>CVV*</span></div>
                                 </div>
                             </div>
                         </div>
@@ -126,5 +146,7 @@ h6 {
     </div>
 </div>
 <script src="js/checkout.js"></script>
+
+
 </body>
 </html>
