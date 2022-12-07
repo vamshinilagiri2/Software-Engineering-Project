@@ -7,13 +7,7 @@ const resultGrid = document.getElementById('orderdetailscard');
 const buttons = document.getElementById('finalbutton');
 
 var un = window.localStorage.getItem('userName');
-const api_url = "http://localhost:8080/editProfile/" + un;
-console.log(un);
-console.log(api_url);
-
-const userpaymentcardslist = document.getElementById('userpaymentcardslist');
-const userpaymentcards_api_url = "http://localhost:8080/user/movies/currentAndComingSoon";
-
+const api_url = "http://localhost:8080/getCheckoutDetails/" + un;
 
 async function orderdetails() {
     resultGrid.innerHTML = `
@@ -42,17 +36,22 @@ async function orderdetails() {
     document.getElementById("state").value = data.address.state;
     document.getElementById("zipCode").value = data.address.zipCode;
     document.getElementById("phoneNumber").value = data.phoneNumber;
-    document.getElementById("cardnumber").value = data.paymentCards[0]['card_Number']
-    console.log(data.paymentCards[0]['address'].city)
+    // document.getElementById("cardnumber").value = data.paymentCards[0]['card_Number']
+    // console.log(data.paymentCards[0]['address'].city)
 
-    const userpaymentcards = await fetch(userpaymentcards_api_url);
-    const usercards = await userpaymentcards.json();
-    for (let i of usercards.cardnumbers) {
+    const userpaymentcards = data.paymentCards;
+    for (let i of userpaymentcards) {
         userpaymentcardslist.innerHTML += `
-          <option value="${i.card_Number}"></option>
+          <option [value]="${i}">${i.cardNumber}</option>
           `;
     }
     
 }
 orderdetails();
+
+function loadcarddetails() {
+    console.log(document.getElementById("userpaymentlist").value)
+
+
+}
 

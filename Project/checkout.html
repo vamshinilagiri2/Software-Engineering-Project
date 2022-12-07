@@ -95,7 +95,7 @@ span.cardnumberdetails {
                         <h6 class="text-uppercase">Payment details</h6>
                         <div class="input-box">
                             <span class="details">Choose from saved payment cards </span> <br>
-                            <input list="userpaymentcardslist" type="text" placeholder="saved cards" name="userpaymentcardslist" class="form-control" required >
+                            <input list="userpaymentcardslist" type="text" placeholder="saved cards" name="userpaymentcardslist" id="userpaymentlist" class="form-control" required onchange="loadcarddetails()">
                             <datalist id="userpaymentcardslist">
         
                             </datalist>
