@@ -1,9 +1,14 @@
 const resultGrid = document.getElementById('addmovie-container');
 
-
+var todaysdate = "";
 
 // load movies from API
 async function loadMovies(){
+    const isoStr = new Date().toISOString();
+    console.log(isoStr);
+    const datetimearr = isoStr.split("T");
+    console.log(datetimearr);
+    todaysdate = datetimearr[0];
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const title = urlParams.get('title')
@@ -17,9 +22,8 @@ async function loadMovies(){
     if(res.ok == true)  displayMovieList(data);
 }
 
-
 function onloadshowdetails() {
-    getshowdetails({value:"2022-11-22"})
+    getshowdetails({value:todaysdate})
 }
 
 async function getshowdetails(Object){
@@ -54,7 +58,7 @@ async function getshowdetails(Object){
     console.log(data)
     var showdetailsdict ={}
     if(data.statusCode){
-        if(Object.value=='2022-11-22'){
+        if(Object.value==todaysdate){
 
         }
         else {
@@ -255,7 +259,7 @@ function displayMovieList(details){
         </div>
         <div class="date-container container">
             <h2 class="heading-title">Select date</h2>
-            <input type="date" value="2022-11-22" onChange="getshowdetails(this)" id="showdate" />
+            <input type="date" value=${todaysdate} onChange="getshowdetails(this)" id="showdate" />
         </div>
         <div class="time-container" id="time-container">
 
@@ -299,4 +303,6 @@ function displayMovieList(details){
 
 
     `;
+
+    document.getElementById("showdate").setAttribute('min', todaysdate);
 }
