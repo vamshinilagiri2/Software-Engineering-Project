@@ -17,15 +17,29 @@ var data = {};
 var un = window.localStorage.getItem('userName');
 const api_url = "http://localhost:8080/getCheckoutDetails/" + un;
 
+
+
+
 async function orderdetails() {
+    const totalticketprice = 11;
+    const onlinefees = 2;
+    const nooftickets = 11;
+    const salestaxprice = totalticketprice*0.2;
+    const totalprice = totalticketprice+salestaxprice+onlinefees;
     resultGrid.innerHTML = `
     <p><h3>Your order</h3></p>
         <h4 >Movie: <span id="checkoutmovietitle">${title}</span> </h4>
         <h5 >Theatre: <span id="checkoutmovietheatre">UGA Theatre</span> </h5>
         <h5 >Show date: <span id="checkoutmovieshowdate">${showdate}</span> </h5>
         <h5 >Show time: <span id="checkoutmovieshowtime">${showtime} </span> </h5>
-        <h5 >No of tickets: <span id="checkoutmovietickets">11</span> </h5>
-        <h5 >Total Price: <span id="checkoutmovietotal">11</span> </h5>
+        <h5 >No of tickets: <span id="checkoutmovietickets">${nooftickets}</span> </h5>
+        <h5 >Total Tickets price: $<span id="checkouttotalticketprice">${totalticketprice}</span> </h5>
+        <h5 >Online Fees: $<span id="checkoutonlinefees">${onlinefees}</span> </h5>
+        <h5 >Sales Tax (20%): $<span id="checkoutsalestax">${salestaxprice}</span> </h5>
+        <h5 >Total Price: $<span id="checkoutmovietotal">${totalprice}</span> </h5>
+        <h5> Apply Promo Code:</h5>
+        <input type="text" name="promocode" id="promocode" placeholder="promocode" class="form-control" > 
+        <input type="button" name="promocodebutton" id="promocodebutton" placeholder="promocodebutton" class="form-control" value="Apply Promo Code" onclick="applypromocode()" > 
 
     
     `;
@@ -135,5 +149,20 @@ function loadcarddetails() {
 
 
 
+}
+
+
+async function applypromocode() {
+    const promourl= "http://localhost:8080/verifyPromoCodegetValue/"+document.getElementById("promocode").value;
+    const response = await fetch(promourl);
+    const data = await response.json();
+    if(data==0) {
+        alert("Invalid Promo Code");
+    }
+    else {
+        const totalticketprice= document.getElementById("checkoutmovietotal")
+        totalticketprice.innerHTML=totalticketprice.innerHTML-data;
+    }
+    console.log(data)
 }
 
