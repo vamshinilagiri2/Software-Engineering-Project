@@ -4,13 +4,16 @@ const title = urlParams.get('title')
 const showtime = urlParams.get('showtime')
 const showdate = urlParams.get('showdate')
 const seatcount = urlParams.get('seatcount')
+const totalticketprice = urlParams.get('totalticketprice')
 const resultGrid = document.getElementById('orderdetailscard');
 const buttons = document.getElementById('finalbutton');
+const screenid = urlParams.get('screenid');
+const selectedSeatsCount = urlParams.get('seatcount');
+const seats=urlParams.get('seats');
 
 var un = window.localStorage.getItem('userName');
 
-const screenid = urlParams.get('screenid');
-const selectedSeatsCount = urlParams.get('seatcount');
+
 
 const checkoutuserpaymentcardslist1 = document.getElementById('userpaymentcardslist1');
 var data = {};
@@ -22,11 +25,10 @@ const api_url = "http://localhost:8080/getCheckoutDetails/" + un;
 
 
 async function orderdetails() {
-    const totalticketprice = 11;
     const onlinefees = 2;
     const nooftickets = seatcount;
     const salestaxprice = totalticketprice*0.2;
-    const totalprice = totalticketprice+salestaxprice+onlinefees;
+    const totalprice = Number(totalticketprice)+Number(salestaxprice)+Number(onlinefees);
     resultGrid.innerHTML = `
     <p><h3>Your order</h3></p>
         <h4 >Movie: <span id="checkoutmovietitle">${title}</span> </h4>
@@ -46,7 +48,7 @@ async function orderdetails() {
     `;
 
     buttons.innerHTML = `
-    <button class="btn btn-success px-3" type="button" onclick="window.location.href='http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=A1,A2,A3"';">Previous Page</button>
+    <button class="btn btn-success px-3" type="button" onclick="window.location.href='http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=${seats}';">Previous Page</button>
     <button class="btn btn-success px-3" type="button" onclick="confirmpayment()">Confirm Payment</button>
     `;
 
@@ -114,7 +116,7 @@ function confirmpayment() {
             
         }
         else {
-            window.location.href=`http://localhost/Integration/Project/orderconfirmation.html?title=${title}&showtime=${showtime}&showdate=${showdate}`; 
+            window.location.href=`http://localhost/Integration/Project/orderconfirmation.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=${seats}&totalticketprice=${totalticketprice}&finalprice=${document.getElementById("checkoutmovietotal").innerHTML}&bookingid=${json.bookingID}`;
         }
     })
     

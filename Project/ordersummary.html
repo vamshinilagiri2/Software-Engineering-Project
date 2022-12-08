@@ -65,15 +65,15 @@
 
           <div class="w-50">
             <div class="col-text">
-              <div class="label">Adult <span style="padding-left: 40px;">15$</span></div>
+              <div class="label">Adult <span style="padding-left: 40px;" id="adultprice">15</span>$</div>
             </div>
           </div>
 
           <div class="w-25">
             <div class="wrapper">
-              <span class="minus1" onclick="calcdiff()" >-</span>
+              <span class="minus1">-</span>
               <span class="num1" id="num1">00</span>
-              <span class="plus1" onclick="calcSum()">+</span>
+              <span class="plus1">+</span>
             </div>
           </div>
 
@@ -87,7 +87,7 @@
 
           <div class="w-50">
             <div class="col-text">
-              <div class="label">Child <span style="padding-left: 40px;">15$</span></div>
+              <div class="label">Senior <span style="padding-left: 30px;" id="seniorprice">10</span>$</div>
             </div>
           </div>
 
@@ -95,7 +95,7 @@
             <div class="wrapper">
               <span class="minus2">-</span>
               <span class="num2" id="num2">00</span>
-              <span class="plus2" onclick="calcSum()">+</span>
+              <span class="plus2">+</span>
             </div>
           </div>
 
@@ -109,7 +109,7 @@
 
           <div class="w-50">
             <div class="col-text">
-              <div class="label">Senior <span style="padding-left: 30px;">15$</span></div>
+              <div class="label">Child <span style="padding-left: 45px;" id="childprice">12</span>$</div>
             </div>
           </div>
 
@@ -117,7 +117,7 @@
             <div class="wrapper">
               <span class="minus3">-</span>
               <span class="num3" id="num3">00</span>
-              <span class="plus3" onclick="calcSum()">+</span>
+              <span class="plus3">+</span>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@
 
           <div class="w-25">
             <div class="wrapper">
-              <span class="total" id="total">00</span>
+              $<span class="total" id="totalticketprice">0</span>
             </div>
           </div>
         </div>
@@ -147,22 +147,49 @@
     </article>
   </div>
   <script src="js/ordersummary.js"> </script>
+
   <script>
+    const ordersummarycount = urlParams.get('seatcount');
+    var count = ordersummarycount;
+    function calcSum() {
+      var num1 = document.getElementById("num1").innerText;
+      var num2 = document.getElementById("num2").innerText;
+      var num3 = document.getElementById("num3").innerText;
+      console.log(num1)
+      console.log(num2)
+      console.log(num3)
+
+      var sum = Number(num1) * document.getElementById("adultprice").innerHTML + Number(num2) * document.getElementById("seniorprice").innerHTML + Number(num3) * document.getElementById("childprice").innerHTML;
+      document.getElementById("totalticketprice").innerText = sum;
+    }
+
     const plus1 = document.querySelector(".plus1"),
       minus1 = document.querySelector(".minus1"),
       num1 = document.querySelector(".num1");
     let a = 0;
     plus1.addEventListener("click", () => {
-      a++;
-      a = (a < 10) ? "0" + a : a;
-      num1.innerText = a;
+      if (count == 0) {
+
+      }
+      else {
+        a++;
+        a = (a < 10) ? "0" + a : a;
+        num1.innerText = a;
+        calcSum();
+        count--;
+
+      }
+
     });
 
     minus1.addEventListener("click", () => {
+      
       if (a > 0) {
+        count++;
         a--;
         a = (a < 10) ? "0" + a : a;
         num1.innerText = a;
+        calcSum();
       }
     });
 
@@ -171,16 +198,26 @@
       num2 = document.querySelector(".num2");
     let b = 0;
     plus2.addEventListener("click", () => {
-      b++;
-      b = (b < 10) ? "0" + b : b;
-      num2.innerText = b;
+      if (count == 0) {
+
+      }
+      else {
+        b++;
+        b = (b < 10) ? "0" + b : b;
+        num2.innerText = b;
+        calcSum();
+        count--;
+      }
+
     });
 
     minus2.addEventListener("click", () => {
       if (b > 0) {
+        count++;
         b--;
         b = (b < 10) ? "0" + b : b;
         num2.innerText = b;
+        calcSum();
       }
     });
 
@@ -189,48 +226,32 @@
       num3 = document.querySelector(".num3");
     let c = 0;
     plus3.addEventListener("click", () => {
-      c++;
-      c = (c < 10) ? "0" + c : c;
-      num3.innerText = c;
-    });
+      if (count == 0) {
+
+      }
+      else {
+        c++;
+        c = (c < 10) ? "0" + c : c;
+        num3.innerText = c;
+        calcSum();
+        count--;
+      }
+
+      });
 
     minus3.addEventListener("click", () => {
       if (c > 0) {
+        count++;
         c--;
         c = (c < 10) ? "0" + c : c;
         num3.innerText = c;
+        calcSum();
       }
     });
 
   </script>
 
-  <script>
-    function calcSum() {
-      var num1 = document.getElementById("num1").innerText;
-      var num2 = document.getElementById("num2").innerText;
-      var num3 = document.getElementById("num3").innerText;
-      var sum = Number(num1) + Number(num2) + Number(num3) + 1 ;
-      var total = sum*15;
-      console.log(sum)
-      document.getElementById("total").innerText = total;
-    }
 
-    function calcdiff() {
-      var num1 = document.getElementById("num1").innerText;
-      var num2 = document.getElementById("num2").innerText;
-      var num3 = document.getElementById("num3").innerText;
-      var sum = Number(num1) + Number(num2) + Number(num3) + 1 ;
-      if(sum==0) {
-        var total = sum;
-      }
-      else {
-        var total = sum * 15;
-      }
-
-      console.log(sum)
-      document.getElementById("total").innerText = total;
-    }
-  </script>
 </body>
 
 </html>

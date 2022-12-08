@@ -1,10 +1,11 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const title = urlParams.get('title')
-const tickets = urlParams.get('tickets')
+const seatcount = urlParams.get('seatcount')
 const showtime = urlParams.get('showtime')
 const showdate = urlParams.get('showdate')
-const total = urlParams.get('total')
+const finalprice = urlParams.get('finalprice')
+const bookingid = urlParams.get('bookingid')
 const resultGrid = document.getElementById('ticketconfirm');
 
 function ticketconf() {
@@ -30,11 +31,11 @@ function ticketconf() {
             <tr>
                 <td width="75%" align="left" bgcolor="#ffb43a"
                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
-                    Booking Confirmation #
+                    Booking Confirmation ID
                 </td>
                 <td width="25%" align="left" bgcolor="#ffb43a"
                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
-                    2345678
+                    ${bookingid}
                 </td>
             </tr>
             <tr>
@@ -54,7 +55,7 @@ function ticketconf() {
                 </td>
                 <td width="25%" align="left"
                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
-                    x ${tickets}
+                    x ${seatcount}
                 </td>
             </tr>
             <tr>
@@ -90,7 +91,7 @@ function ticketconf() {
                 </td>
                 <td width="25%" align="left"
                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
-                    ${total}
+                    ${finalprice}
                 </td>
             </tr>
         </table>

@@ -17,7 +17,7 @@ async function orderhistory() {
                 <div class="product__info">
                     <div class="title">
                         <h1>${i.movie.title}</h1>
-                        <span>Booking ID: CEBS${i.bookingID}</span>
+                        <span>Booking ID: ${i.bookingID}</span>
                     </div>
                     <div class="description">
                         <ul>

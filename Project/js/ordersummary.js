@@ -7,6 +7,7 @@ const resultGrid = document.getElementById('ordersummary');
 const buttons = document.getElementById('col-buttons');
 const screenid = urlParams.get('screenid');
 const selectedSeatsCount = urlParams.get('seatcount');
+const seats=urlParams.get('seats');
 
 function orderdetails() 
 {
@@ -14,15 +15,14 @@ function orderdetails()
     Movie Name : ${title} <br>
     Theatre: UGA Theatre <br>
     Show date  : ${showdate} <br>
+    Screen ID  : Screen ${screenid} <br>
     Show time  : ${showtime} <br>
-    Number of Seats Selected: 4
+    Number of Seats Selected: ${selectedSeatsCount}
     
     `;
 
     buttons.innerHTML = `
-    <a href="http://localhost/Integration/Project/checkout.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=A1,A2,A3">
-    <button class="btn accentric">Make Payment</button>
-    </a>
+    <button class="btn accentric" onclick="makepayment()">Make Payment</button>
     <a href="http://localhost/Integration/Project/movieinformation.html?title=${title}">
     <button class="btn transparent">Cancel Order</button>
     </a>
@@ -30,5 +30,8 @@ function orderdetails()
     `;
 }
 
+function makepayment() {
+    window.location.href =`http://localhost/Integration/Project/checkout.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=${seats}&totalticketprice=${document.getElementById("totalticketprice").innerHTML}`;
+}
 
-orderdetails();
+
