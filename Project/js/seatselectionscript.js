@@ -11,9 +11,13 @@ const movieSelect = document.getElementById('movie');
 const movienameonpage = document.getElementById('movie-container');
 const proceedbtn = document.getElementById('proceedbtn');
 
+const screenid = urlParams.get('screenid');
+
 
 var seatsselected=[];
+var selectedSeatsCount = 0;
 
+var selectedSeats = [];
 populateUI();
 let ticketPrice = +movieSelect.value;
 
@@ -24,7 +28,20 @@ function moviename() {
   `;
 
   proceedbtn.innerHTML= `
-  <a href="http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${showtime}&showdate=${showdate}">
+  
+    <input type="button"  value="Proceed" class="btn" onclick="gotordersummary()">
+  `;
+}
+
+function gotordersummary() {
+  var checkoutseats = window.localStorage.getItem('selectedSeats');
+  movienameonpage.innerHTML = `
+  <label>Movie Name :  <span style="padding-left:10px;"> ${title}</span></label><br>
+  
+  `;
+
+  proceedbtn.innerHTML= `
+  <a href="http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=A1,A2,A3">
     <input type="button"  value="Proceed" class="btn" >
   </a>
   `;
@@ -40,20 +57,20 @@ function setMovieData(movieIndex, moviePrice) {
 
 // update total and count
 function updateSelectedCount() {
-  const selectedSeats = document.querySelectorAll('.row .seat.selected');
+   selectedSeats = document.querySelectorAll('.row .seat.selected');
 
   const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
 
-  localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+  // localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
 
   //copy selected seats into arr
   // map through array
   //return new array of indexes
 
-  const selectedSeatsCount = selectedSeats.length;
+   selectedSeatsCount = selectedSeats.length;
 
   count.innerText = selectedSeatsCount;
-  total.innerText = selectedSeatsCount * ticketPrice;
+  // total.innerText = selectedSeatsCount * ticketPrice;
 
 }
 
@@ -101,8 +118,9 @@ container.addEventListener('click', (e) => {
     else {
       seatsselected.push(e.target.id)
     }
+    localStorage.setItem('selectedSeats', JSON.stringify(seatsselected));
     console.log(seatsselected)
-    console.log(seatsselected.length)
+
 
     updateSelectedCount();
 

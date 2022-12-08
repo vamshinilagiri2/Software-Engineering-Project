@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E-Movie booking System</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dropstyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="webiste logo" href="imgs/logo.png" type="image/x-icon">
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script> 
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <style>
+        .btn {
+            text-decoration: none;
+            padding: 15px 40px;
+            background-color: rgb(255,122,0);
+            color: #fff;
+            border-radius: 40px;
+            font-family: 'Century Gothic';
+            font-weight: bolder;
+            box-shadow: 0 10px 40px rgba(255,122,0,0.4);
+
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0; left: o;
+            width: 100%; height: 100%;
+            z-index: 99999;
+            background-color: blanchedalmond;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        .video-container .close {
+            position: absolute;
+            top: 10px; right: 25px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .video-container video {
+            width: 90%;
+            max-width: 800px;
+            transform: scale(0);
+            box-shadow: 0 20px 20px rgba(0,0,0,0.2);
+            outline: none;
+            transition: all 0.3s;
+        }
+        .video-container .show{
+            pointer-events: all; opacity: 1;
+        }
+        .video-container.show video { transform: scale(1);}
+    </style>
+</head>
+<body onload="moviesonhomepage()">
+    <header>
+        <!-- Logo -->
+        <div class="nav container">
+            <a href="home.html" class="logo">
+                Movie<span>booking</span>
+            </a>
+            <div class="search-box">
+                <div class = "search-element">
+                    <input type="search"  id="search-input"  class = "form-control" placeholder="Search Movie Title ..."  oninput="findMovies()" onclick = "findMovies()" onmouseover = "showbuttons()">
+                    <div class="search-icon"><lord-icon src="https://cdn.lordicon.com/pvbutfdk.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon> </div>
+                    
+                    
+                    <div class = "search-list" id = "search-list">
+                        <!-- list here -->
+                        <!-- <div class = "search-list-item">
+                            <div class = "search-item-thumbnail">
+                                <img src = "medium-cover.jpg">
+                            </div>
+                            <div class = "search-item-info">
+                                <h3>Guardians of the Galaxy Vol. 2</h3>
+                                <p>2017</p>
+                            </div>
+                        </div> -->
+                    </div>
+    
+                </div>
+                
+            </div>
+
+        <!-- Edit this PART !!!!!!!-->
+
+        <!--
+
+        <a href="login.html" class="user">
+        <lord-icon src="https://cdn.lordicon.com/dklbhvrt.json" trigger="hover" colors="primary:#ffffff" style="width:40px;height:40px"> </lord-icon>
+        Log in
+        </a>
+        -->
+        <div class="navbar">
+            <a href="#search-input" class="nav-link">
+                <lord-icon src="https://cdn.lordicon.com/igpbsrza.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                <span class="nav-link-title">Home</span >
+            </a> 
+            <a href="#Nowplaying" class="nav-link">
+                <lord-icon src="https://cdn.lordicon.com/axyzxviq.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                <span class="nav-link-title">Latest Movies</span >
+            </a>
+            <a href="#comingsoon" class="nav-link">
+                <lord-icon src="https://cdn.lordicon.com/drtetngs.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+                <span class="nav-link-title">Coming soon</span >
+            </a>
+                      
+        </div>
+
+
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+                <img src="imgs/user.png" alt="">
+            </div>
+    
+            <div class="menu">
+                <h3>
+                    <p id="userName"> </p>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="material-icons icons-size">person</span>
+                        <a href="Myprofile.html">My Profile</a>
+                    </li>
+                    <li>
+                        <span class="material-icons icons-size">mode</span>
+                        <a href="Manageprofile.html">Edit Profile</a>
+                    </li>
+                    <li>
+                        <span class="material-icons icons-size">insert_comment</span>
+                        <a href="orderhistory.html">Booking History</a>
+                    </li>
+                    <li>
+                        <span class="material-icons icons-size">logout </span>
+                        <a href="home.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        </div>
+    </header>
+    <section class="landing-page container" id="landing-page">
+        <img src="imgs/landing-page.png" alt="" class="landing-page-img">
+        <div class="landing-text">
+            <h1 class="landing-title">Avatar<br>The Way of Water</br> </h1>
+            <p>Releasing December 16</p>
+            <a href="https://youtu.be/a8Gx8wiNbs8" class="watch-btn">
+                <lord-icon src="https://cdn.lordicon.com/fetyzpiw.json" trigger="morph" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon>
+            Watch the trailer
+            </a>
+        </div>
+
+    </section>
+    <!-- Landing page sections-->
+    <section class="Nowplaying container" id="Nowplaying">
+        <!-- Heading-->
+        <div class="heading">
+            <h2 class="heading-title">Now Playing</h2>
+            <!-- 
+            <div class = " swiper-btn ">
+                <div class = "swiper-button-prev"> </div>
+                <div class = "swiper-button-next"> </div>
+            </div>
+            -->
+        </div>
+        <div #swiperRef="" class="swiper mySwiper">
+            <div class="swiper-wrapper" id="swiper">
+
+
+
+            </div>
+
+            
+        </div>
+        
+          <!-- Swiper JS -->
+          
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <script>
+            function menuToggle(){
+                const toggleMenu = document.querySelector('.menu');
+                toggleMenu.classList.toggle('active')
+            }
+        </script>
+        
+         
+    </section>
+
+    <section class="comingsoon container" id="comingsoon">
+        <!-- Heading-->
+        <div class="heading">
+            <h2 class="heading-title">Coming Soon</h2>
+            <!-- 
+            <div class = " swiper-btn ">
+                <div class = "swiper-button-prev"> </div>
+                <div class = "swiper-button-next"> </div>
+            </div>
+            -->
+        </div>
+        <div #swiperRef="" class="swiper mySwiper">
+            <div class="swiper-wrapper" id="swiper2">
+
+
+
+            </div>
+
+            
+        </div>
+        
+          <!-- Swiper JS -->
+          
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <script>
+            function menuToggle(){
+                const toggleMenu = document.querySelector('.menu');
+                toggleMenu.classList.toggle('active')
+            }
+        </script>
+        
+         
+    </section>
+
+    
+
+
+    <script src="js/main.js"></script>
+    <!-- <script src="js/testsearchresult.js"></script> -->
+    <script src="js/testsearchresult.js"></script>
+    <script src="js/loadmovies copy.js"></script>
+    <SCRIPT>
+        function showbuttons() {
+            var x = document.getElementById('buttons');
+            if (x.style.display == 'none') {
+                x.style.display = 'block';
+            } else {
+                x.style.display = 'none';
+            }
+        }
+    </SCRIPT>
+    <script>
+    var un = window.localStorage.getItem('userName');
+    document.getElementById("userName").innerHTML = un;
+    function check() {
+        window.localStorage.clear();
+        var url = window.location.href;
+        window.history.go(-window.history.length);
+        window.location.href = url;
+    }
+    </script>
+    <script>
+        const btn = document.querySelector('.btn');
+        const videoContainer = document.querySelector('.video-container');
+        const close = document.querySelector('.close');
+
+        btn.addEventListener('click' ,()=> {
+            videoContainer.classList.add('show');
+        })
+
+        close.addEventListener('click' ,()=> {
+            videoContainer.classList.remove('show');
+        })
+    </script>
+    
+</body>
+</html>

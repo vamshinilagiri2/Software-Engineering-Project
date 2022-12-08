@@ -90,7 +90,7 @@ async function getshowdetails(Object){
             screenheader1.style.display='block'
             one.forEach(element => {
                 screen1.innerHTML += `
-                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&showdate=${Object.value}';">${element}</button>
+                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&showdate=${Object.value}&screenid=1';">${element}</button>
                 `;
                 
             });
@@ -105,7 +105,7 @@ async function getshowdetails(Object){
             screenheader2.style.display='block'
             two.forEach(element => {
                 screen2.innerHTML += `
-                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&showdate=${Object.value}';">${element}</button>
+                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&showdate=${Object.value}&screenid=2';">${element}</button>
                 `;
                 
             });
@@ -121,7 +121,7 @@ async function getshowdetails(Object){
             screenheader3.style.display='block'
             three.forEach(element => {
                 screen3.innerHTML += `
-                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&showdate=${Object.value}';">${element}</button>
+                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&showdate=${Object.value}&screenid=3';">${element}</button>
                 `;
                 
             });
@@ -136,7 +136,7 @@ async function getshowdetails(Object){
             screenheader4.style.display='block'
             four.forEach(element => {
                 screen4.innerHTML += `
-                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&Showdate=${Object.value}';">${element}</button>
+                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&Showdate=${Object.value}&screenid=4';">${element}</button>
                 `;
                 
             });
