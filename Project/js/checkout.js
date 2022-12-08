@@ -41,9 +41,10 @@ async function orderdetails() {
         <h5 >Sales Tax (20%): $<span id="checkoutsalestax">${salestaxprice}</span> </h5>
         <h5 >Total Price: $<span id="checkoutmovietotal">${totalprice}</span> </h5>
         <h5> Apply Promo Code:</h5>
-        <input type="text" name="promocode" id="promocode" placeholder="promocode" class="form-control" > 
-        <input type="button" name="promocodebutton" id="promocodebutton" placeholder="promocodebutton" class="form-control" value="Apply Promo Code" onclick="applypromocode()" > 
-
+        <div class="promocodebutons">
+            <input type="text" name="promocode" id="promocode" placeholder="promocode" class="form-control" > 
+            <input type="button" name="promocodebutton" id="promocodebutton" placeholder="promocodebutton" class="form-control" value="Apply Promo Code" onclick="applypromocode()" > 
+        </div>
     
     `;
 
@@ -69,6 +70,13 @@ async function orderdetails() {
 
     const userpaymentcards = data.paymentCards;
     console.log(userpaymentcards);
+    const noofpaymentcards=userpaymentcards.length;
+    if(noofpaymentcards == 3) {
+        // document.getElementById("cardholdername").setAttribute("disabled","");
+        // document.getElementById("cardnumber").setAttribute("disabled","");
+        // document.getElementById("exp").setAttribute("disabled","");
+        document.getElementById("cardcheckbox").setAttribute("disabled","");
+    }
     checkoutuserpaymentcardslist1.innerHTML = ``;
     for (let i of userpaymentcards) {
         console.log(i.cardNumber);
@@ -132,6 +140,7 @@ function loadcarddetails() {
 
 
     const currentpaymentcardnumber = document.getElementById("userpaymentlist").value;
+
     for (let i of userpaymentcards) {
 
 

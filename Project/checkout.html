@@ -1,139 +1,205 @@
 <!-- Adapted from https://bbbootstrap.com/snippets/bootstrap-payment-form-floating-labels-and-order-details-59901544 -->
 <html>
+
 <head>
     <title>Checkout</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-<style>
-  body {
-    background-color: var(--body-color);
-  }
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: var(--body-color);
+        }
 
-  :root {
-    --main-color: #ffb43a;
-    --hover-color: hsl(37, 94%, 57%);
-    --body-color: #1e1e2a;
-    --containercolor: #2d2e37;
-    --text-color: #fcfeff;
+        :root {
+            --main-color: #ffb43a;
+            --hover-color: hsl(37, 94%, 57%);
+            --body-color: #1e1e2a;
+            --containercolor: #2d2e37;
+            --text-color: #fcfeff;
 
-}
-h3 {
-  text-align: center;
-	margin: 0px;
-  color: var(--main-color);
-  font-weight: 600px;
-  background-color: var(--containercolor);
-}
-h6 {
-  padding-top: 20px;
-}
+        }
 
-.d-flex.flex-row {
-    position: relative;
-    bottom: -23px;
-}
+        h3 {
+            text-align: center;
+            margin: 0px;
+            color: var(--main-color);
+            font-weight: 600px;
+            background-color: var(--containercolor);
+        }
 
-span.cardnumberdetails {
-    position: relative;
-    bottom: -10px;
-}
-  
-</style> 
-	
+        h6 {
+            padding-top: 20px;
+        }
+
+        .d-flex.flex-row {
+            position: relative;
+            bottom: -23px;
+        }
+
+        span.cardnumberdetails {
+            position: relative;
+            bottom: -10px;
+        }
+
+        div#finalbutton {
+            position: relative;
+            bottom: -20px;
+        }
+
+        .checkbox {
+            position: relative;
+            bottom: -30px;
+        }
+
+        input#promocodebutton {
+            width: 180;
+            position: relative;
+            top: -38px;
+            right: -170px;
+            color: var(--main-color);
+            background: var(--containercolor);
+        }
+
+        input#promocode {
+            width: 150px;
+            background: var(--containercolor);
+            color: var(--main-color);
+        }
+
+        .promocodebutons {
+            position: relative;
+            bottom: -10px;
+        }
+    </style>
+
 </head>
+
 <body onload="orderdetails()">
-<div class="container mt-5 px-5">
-    <div class="row">
-        <div class="col-md-8">
-			    
-            <div class="card p-3">
-                <form method="post" action="#">
-                    <h3>Checkout</h3>
-                    <h6 class="text-uppercase">Personal information</h6>
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your First Name" name="firstName" id="firstName" class="form-control" required></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your Last Name" name="lastName"  id="lastName" class="form-control" required="required"> <span></span></div>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"> 
-                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="username@gmail.com" name="emailID" id="emailID" class="form-control" required> <span></span></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input mt-3 mr-2"><input disabled type="text" placeholder="+1(932) 413-3864" name="phoneNumber"  id="phoneNumber" class="form-control" required> <span></span></div>
-                        </div>
-                    </div>
-                    <div class="mt-4 mb-4">
-                        <h6 class="text-uppercase">Billing Address</h6>
+    <div class="container mt-5 px-5">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="card p-3">
+                    <form method="post" action="#">
+                        <h3>Checkout</h3>
+                        <h6 class="text-uppercase">Personal information</h6>
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                <div class="input mt-3 mr-2"><input type="text" name="street" id="street" class="form-control" required> <span>Street Address*</span>
-                                </div>
+                                <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your First Name"
+                                        name="firstName" id="firstName" class="form-control" required></div>
                             </div>
                             <div class="col-md-6">
-                                <div class="input mt-3 mr-2"><input type="text" name="city" id="city" class="form-control" required> <span>City*</span></div>
+                                <div class="input mt-3 mr-2"><input disabled type="text" placeholder="Your Last Name"
+                                        name="lastName" id="lastName" class="form-control" required="required">
+                                    <span></span>
+                                </div>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <div class="input mt-3 mr-2"><input type="text" name="state" id="state" class="form-control" required> <span>*State/Province*</span>
+                                <div class="input mt-3 mr-2"><input disabled type="text"
+                                        placeholder="username@gmail.com" name="emailID" id="emailID"
+                                        class="form-control" required> <span></span></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input mt-3 mr-2"><input disabled type="text" placeholder="+1(932) 413-3864"
+                                        name="phoneNumber" id="phoneNumber" class="form-control" required> <span></span>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="input mt-3 mr-2"><input type="text" name="zipCode" id="zipCode" class="form-control" required> <span>Zip code*</span></div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="mt-4 mb-4">
-                        <h6 class="text-uppercase">Payment details</h6>
-                        <div class="input-box">
-                            <span class="details">Choose from saved payment cards </span> <br>
-                            <input list="userpaymentcardslist1" type="text" placeholder="saved cards" name="userpaymentlist" id="userpaymentlist" class="form-control" required onchange="loadcarddetails()">
-                            <datalist id="userpaymentcardslist1">
-        
-                            </datalist>
-        
-                        </div>
-                        <div class="input mt-3">
-                            <span class="details"> Card holder name*</span> <br>
-                          <input type="text" name="cardholdername" id="cardholdername" class="form-control" required> <span></span></div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <span class="cardnumberdetails">Card Number* </span> <br>
-                                <div class="input mt-3 mr-2"><input type="text" name="cardnumber" id="cardnumber" class="form-control" required> <i
-                                        class="fa fa-credit-card"></i> <span></span></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex flex-row">
-                                    <div class="input mt-3 mr-2"><input type="month" placeholder="05/22" name="exp" id="exp" class="form-control" required> <span>Expiry date*</span>
+                        <div class="mt-4 mb-4">
+                            <h6 class="text-uppercase">Billing Address</h6>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="input mt-3 mr-2"><input type="text" name="street" id="street"
+                                            class="form-control" required> <span>Street Address*</span>
                                     </div>
-                                    <div class="input mt-3 mr-2"><input type="password" name="cvv" id="cvv" class="form-control" required maxlength="3" required> <span>CVV*</span></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input mt-3 mr-2"><input type="text" name="city" id="city"
+                                            class="form-control" required> <span>City*</span></div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <div class="input mt-3 mr-2"><input type="text" name="state" id="state"
+                                            class="form-control" required> <span>*State/Province*</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input mt-3 mr-2"><input type="text" name="zipCode" id="zipCode"
+                                            class="form-control" required> <span>Zip code*</span></div>
                                 </div>
                             </div>
                         </div>
-                    </div> 
-                    <div class="mt-4 mb-4 d-flex justify-content-between" id="finalbutton">
-                        <!-- <button class="btn btn-success px-3" onclick="Registrationconfirmation.html">Previous
+                        <div class="mt-4 mb-4">
+                            <h6 class="text-uppercase">Payment details</h6>
+                            <div class="input-box">
+                                <span class="details">Choose from saved payment cards </span> <br>
+                                <input list="userpaymentcardslist1" type="text" placeholder="saved cards"
+                                    name="userpaymentlist" id="userpaymentlist" class="form-control" required
+                                    onchange="loadcarddetails()">
+                                <datalist id="userpaymentcardslist1">
+
+                                </datalist>
+
+                            </div>
+                            <div class="input mt-3">
+                                <span class="details"> Card holder name*</span> <br>
+                                <input type="text" name="cardholdername" id="cardholdername" class="form-control"
+                                    required> <span></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="cardnumberdetails">Card Number* </span> <br>
+                                    <div class="input mt-3 mr-2"><input type="text" name="cardnumber" id="cardnumber"
+                                            class="form-control" required> <i class="fa fa-credit-card"></i>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex flex-row">
+                                        <div class="input mt-3 mr-2"><input type="month" placeholder="05/22" name="exp"
+                                                id="exp" class="form-control" required> <span>Expiry date*</span>
+                                        </div>
+                                        <div class="input mt-3 mr-2"><input type="password" name="cvv" id="cvv"
+                                                class="form-control" required maxlength="3" required> <span>CVV*</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="checkbox">
+                                <input type="checkbox" name="promotionEnabled" id="cardcheckbox" />
+                                <label class="control control--checkbox mb-0"><span class="caption">Save payment
+                                        details</span> </label>
+                            </div>
+
+                        </div>
+                        <div class="mt-4 mb-4 d-flex justify-content-between" id="finalbutton">
+                            <!-- <button class="btn btn-success px-3" onclick="Registrationconfirmation.html">Previous
                         </button>
                         <button class="btn btn-success px-3"
                                 type="button">Submit Order
                         </button> -->
-                    </div>
-                </form>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-			
-            <div class="card card-blue p-3 text-black mb-3" id= "orderdetailscard">
-              <p><h3>Your order</h3></p>
-                <!-- <c:forEach var="row" items="${result2.rows}">
+            <div class="col-md-4">
+
+                <div class="card card-blue p-3 text-black mb-3" id="orderdetailscard">
+                    <p>
+                    <h3>Your order</h3>
+                    </p>
+                    <!-- <c:forEach var="row" items="${result2.rows}">
                     <h4>Movie: Avatar</h4>
                 </c:forEach>
                 <c:forEach var="row" items="${result.rows}">
@@ -141,12 +207,13 @@ span.cardnumberdetails {
                     <h5>Seats: A1,A2,A3</h5>
                     <h5>Time: 01:30pm</h5>
                 </c:forEach> -->
+                </div>
             </div>
         </div>
     </div>
-</div>
-<script src="js/checkout.js"></script>
+    <script src="js/checkout.js"></script>
 
 
 </body>
+
 </html>
