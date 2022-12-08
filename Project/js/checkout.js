@@ -3,6 +3,7 @@ const urlParams = new URLSearchParams(queryString);
 const title = urlParams.get('title')
 const showtime = urlParams.get('showtime')
 const showdate = urlParams.get('showdate')
+const seatcount = urlParams.get('seatcount')
 const resultGrid = document.getElementById('orderdetailscard');
 const buttons = document.getElementById('finalbutton');
 
@@ -23,7 +24,7 @@ const api_url = "http://localhost:8080/getCheckoutDetails/" + un;
 async function orderdetails() {
     const totalticketprice = 11;
     const onlinefees = 2;
-    const nooftickets = 11;
+    const nooftickets = seatcount;
     const salestaxprice = totalticketprice*0.2;
     const totalprice = totalticketprice+salestaxprice+onlinefees;
     resultGrid.innerHTML = `

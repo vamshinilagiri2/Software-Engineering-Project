@@ -13,15 +13,14 @@ const proceedbtn = document.getElementById('proceedbtn');
 
 const screenid = urlParams.get('screenid');
 
-
 var seatsselected=[];
 var selectedSeatsCount = 0;
 
 var selectedSeats = [];
-populateUI();
-let ticketPrice = +movieSelect.value;
+
 
 function moviename() {
+
   movienameonpage.innerHTML = `
   <label>Movie Name :  <span style="padding-left:10px;"> ${title}</span></label><br>
   
@@ -31,6 +30,23 @@ function moviename() {
   
     <input type="button"  value="Proceed" class="btn" onclick="gotordersummary()">
   `;
+
+  var checkoutseats = window.localStorage.getItem('selectedSeats');
+  var checkoutseatsArr = checkoutseats.split(",");
+  if(checkoutseats) {
+    seatsselected = checkoutseatsArr;
+  }
+  else {
+    seatsselected = [];
+  }
+
+  console.log(checkoutseatsArr);
+  for(let i of checkoutseatsArr) {
+    document.getElementById(i).className="seat selected";
+  }
+
+  document.getElementById("count").innerHTML=seatsselected.length;
+
 }
 
 function gotordersummary() {
@@ -39,67 +55,8 @@ function gotordersummary() {
   <label>Movie Name :  <span style="padding-left:10px;"> ${title}</span></label><br>
   
   `;
-
-  proceedbtn.innerHTML= `
-  <a href="http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=A1,A2,A3">
-    <input type="button"  value="Proceed" class="btn" >
-  </a>
-  `;
+  window.location.href=`http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${document.getElementById("count").innerHTML}&seats=${checkoutseats}`;
 }
-
-
-
-// Save selected movie index and price
-function setMovieData(movieIndex, moviePrice) {
-  localStorage.setItem('selectedMovieIndex', movieIndex);
-  localStorage.setItem('selectedMoviePrice', moviePrice);
-}
-
-// update total and count
-function updateSelectedCount() {
-   selectedSeats = document.querySelectorAll('.row .seat.selected');
-
-  const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
-
-  // localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
-
-  //copy selected seats into arr
-  // map through array
-  //return new array of indexes
-
-   selectedSeatsCount = selectedSeats.length;
-
-  count.innerText = selectedSeatsCount;
-  // total.innerText = selectedSeatsCount * ticketPrice;
-
-}
-
-// get data from localstorage and populate ui
-function populateUI() {
-  const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
-  if (selectedSeats !== null && selectedSeats.length > 0) {
-    seats.forEach((seat, index) => {
-      if (selectedSeats.indexOf(index) > -1) {
-        seat.classList.add('selected');
-      }
-    });
-  }
-
-  const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
-
-  if (selectedMovieIndex !== null) {
-    movieSelect.selectedIndex = selectedMovieIndex;
-  }
-}
-
-// Movie select event
-movieSelect.addEventListener('change', (e) => {
-  ticketPrice = +e.target.value;
-  setMovieData(e.target.selectedIndex, e.target.value);
-  updateSelectedCount();
-});
-
-// Seat click event
 container.addEventListener('click', (e) => {
   if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
     e.target.classList.toggle('selected');
@@ -118,14 +75,13 @@ container.addEventListener('click', (e) => {
     else {
       seatsselected.push(e.target.id)
     }
-    localStorage.setItem('selectedSeats', JSON.stringify(seatsselected));
+
+    localStorage.setItem('selectedSeats', seatsselected.join());
+    const seatselectedstring = JSON.stringify(seatsselected);
+    console.log(JSON.parse(seatselectedstring));
     console.log(seatsselected)
-
-
-    updateSelectedCount();
+    document.getElementById("count").innerHTML=seatsselected.length;
 
   }
 });
 
-// intial count and total
-updateSelectedCount();
