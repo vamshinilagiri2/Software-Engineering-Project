@@ -10,6 +10,7 @@ const seats = urlParams.get('seats')
 const resultGrid = document.getElementById('ticketconfirm');
 
 function ticketconf() {
+    window.localStorage.removeItem("selectedSeats");
     resultGrid.innerHTML = `
     <tr>
     <td align="center"

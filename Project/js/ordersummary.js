@@ -22,7 +22,7 @@ function orderdetails()
     `;
 
     buttons.innerHTML = `
-    <button class="btn accentric" onclick="makepayment()">Make Payment</button>
+    <button class="btn accentric" onclick="makepayment()">Checkout</button>
     <a href="http://localhost/Integration/Project/movieinformation.html?title=${title}">
     <button class="btn transparent">Cancel Order</button>
     </a>
@@ -31,7 +31,13 @@ function orderdetails()
 }
 
 function makepayment() {
-    window.location.href =`http://localhost/Integration/Project/checkout.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=${seats}&totalticketprice=${document.getElementById("totalticketprice").innerHTML}`;
+    if(window.localStorage.getItem("userName")) {
+        window.location.href =`http://localhost/Integration/Project/checkout.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=${seats}&totalticketprice=${document.getElementById("totalticketprice").innerHTML}`;
+    }
+    else {
+        window.location.href =`http://localhost/Integration/Project/login.html`;
+    }
+    
 }
 
 
