@@ -140,7 +140,7 @@ async function getshowdetails(Object){
             screenheader4.style.display='block'
             four.forEach(element => {
                 screen4.innerHTML += `
-                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&Showdate=${Object.value}&screenid=4';">${element}</button>
+                <button type="button" class="button-class" id="button1" onclick="window.location.href='http://localhost/Integration/Project/seatselection.html?title=${title}&showtime=${element}&showdate=${Object.value}&screenid=4';">${element}</button>
                 `;
                 
             });
