@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>E-Movie booking System</title>
     <meta charset="UTF-8">
@@ -7,11 +8,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/movieinformationstyle.css">
     <link rel="stylesheet" href="css/addmovie.css">
+    <link rel="stylesheet" href="css/dropstyle.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="webiste logo" href="imgs/logo.png" type="image/x-icon">
-    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script> 
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <style>
+        .action .menu {
+            background-color: #FFF;
+            box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 10px 20px;
+            position: absolute;
+            right: 185px;
+            width: 200px;
+            transition: 0.5s;
+            top: 90px;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .action .menu.active {
+            opacity: 1;
+            top: 0px;
+            visibility: visible;
+            /* left: 30px; */
+            right: 185px;
+        }
+
+        body {
+            --google-font-color-materialiconstwotone: none;
+            overflow-x: hidden;
+        }
+
+        .action .profile {
+            border-radius: 50%;
+            cursor: pointer;
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            width: 50px;
+            top: -70px;
+            right: -1450px;
+        }
+    </style>
 
 </head>
+
 <body onload="loadMovies();onloadshowdetails()">
     <header>
         <!-- Logo -->
@@ -19,35 +64,36 @@
             <a href="home.html" class="logo">
                 Movie<span>booking</span>
             </a>
-        <!-- Search Box-->
-        <!-- <div class="search-box">
-            <div class = "search-element">
-                <input type="search"  id="search-input"  class = "form-control" placeholder="Search Movie Title ..."  onkeyup="findMovies()" onclick = "findMovies()">
-                <div class="search-icon"><lord-icon src="https://cdn.lordicon.com/pvbutfdk.json" trigger="hover" colors="primary:#ffffff" style="width:25px;height:25px"> </lord-icon> </div>
-                <div class = "search-list" id = "search-list">
-                    <!-- list here -->
-                    <!-- <div class = "search-list-item">
-                        <div class = "search-item-thumbnail">
-                            <img src = "medium-cover.jpg">
-                        </div>
-                        <div class = "search-item-info">
-                            <h3>Guardians of the Galaxy Vol. 2</h3>
-                            <p>2017</p>
-                        </div>
-                    </div> -->
-                <!-- </div>
+        </div>
 
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+                <img src="imgs/user.png" alt="">
             </div>
-            
-        </div> --> 
 
-        <!-- Edit this PART !!!!!!!-->
-<!-- 
-        <a href="login.html" class="user">
-        <lord-icon src="https://cdn.lordicon.com/unvvkseg.json" trigger="hover" colors="primary:#ffffff,secondary:#ffffff" style="width:50px;height:50px"> </lord-icon>
-        
-        </a> -->
-
+            <div class="menu">
+                <h3>
+                    <p id="userName"> </p>
+                </h3>
+                <ul>
+                    <li>
+                        <span class="material-icons icons-size">person</span>
+                        <a href="Myprofile.html">My Profile</a>
+                    </li>
+                    <li>
+                        <span class="material-icons icons-size">mode</span>
+                        <a href="Manageprofile.html">Edit Profile</a>
+                    </li>
+                    <li>
+                        <span class="material-icons icons-size">insert_comment</span>
+                        <a href="orderhistory.html">Booking History</a>
+                    </li>
+                    <li>
+                        <span class="material-icons icons-size">logout </span>
+                        <a href="home.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -99,9 +145,27 @@
             </dd></div></div></div>
         </div> -->
     </div>
-    
-    
+
+
     <script src="js/movieinformation.js"></script>
-    
+    <script>
+        function menuToggle() {
+            const toggleMenu = document.querySelector('.menu');
+            toggleMenu.classList.toggle('active')
+        }
+    </script>
+
+    <script>
+        var un = window.localStorage.getItem('userName');
+        document.getElementById("userName").innerHTML = un;
+        function check() {
+            window.localStorage.clear();
+            var url = window.location.href;
+            window.history.go(-window.history.length);
+            window.location.href = url;
+        }
+    </script>
+
 </body>
+
 </html>

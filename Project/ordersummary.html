@@ -4,9 +4,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frontend Mentor | Order summary card</title>
+  <title>Order Summary </title>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/download.png" />
   <link rel="stylesheet" href="order-summary/css/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/dropstyle.css">
+
+  <div class="action">
+    <div class="profile" onclick="menuToggle();">
+      <img src="imgs/user.png" alt="">
+    </div>
+
+    <div class="menu">
+      <h3>
+        <p id="userName"> </p>
+      </h3>
+      <ul>
+        <li>
+          <span class="material-icons icons-size">person</span>
+          <a href="Myprofile.html">My Profile</a>
+        </li>
+        <li>
+          <span class="material-icons icons-size">mode</span>
+          <a href="Manageprofile.html">Edit Profile</a>
+        </li>
+        <li>
+          <span class="material-icons icons-size">insert_comment</span>
+          <a href="orderhistory.html">Booking History</a>
+        </li>
+        <li>
+          <span class="material-icons icons-size">logout </span>
+          <a href="home.html">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -43,6 +77,45 @@
     .wrapper span.num {
       font-size: 20px;
       pointer-events: none;
+    }
+
+    .action .menu.active {
+      opacity: 1;
+      top: 80px;
+      visibility: visible;
+    }
+
+    .action .menu {
+      background-color: #FFF;
+      box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 10px 20px;
+      position: absolute;
+      right: 220px;
+      /* bottom: 30px; */
+      width: 200px;
+      transition: 0.5s;
+      /* top: 120px; */
+      top: 90px;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .action .profile {
+      border-radius: 50%;
+      cursor: pointer;
+      height: 50px;
+      overflow: hidden;
+      position: relative;
+      width: 50px;
+      top: 0px;
+      right: -1400px;
+    }
+
+    body {
+      --google-font-color-materialiconstwotone: none;
+      background: #1e1e2a;
+      overflow-x: hidden;
     }
   </style>
 </head>
@@ -183,7 +256,7 @@
     });
 
     minus1.addEventListener("click", () => {
-      
+
       if (a > 0) {
         count++;
         a--;
@@ -237,7 +310,7 @@
         count--;
       }
 
-      });
+    });
 
     minus3.addEventListener("click", () => {
       if (c > 0) {
@@ -249,6 +322,24 @@
       }
     });
 
+  </script>
+
+  <script>
+    function menuToggle() {
+      const toggleMenu = document.querySelector('.menu');
+      toggleMenu.classList.toggle('active')
+    }
+  </script>
+
+  <script>
+    var un = window.localStorage.getItem('userName');
+    document.getElementById("userName").innerHTML = un;
+    function check() {
+      window.localStorage.clear();
+      var url = window.location.href;
+      window.history.go(-window.history.length);
+      window.location.href = url;
+    }
   </script>
 
 

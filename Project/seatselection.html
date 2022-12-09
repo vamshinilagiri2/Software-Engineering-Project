@@ -1,124 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/seatselectionstyle.css" />
-    <title>Movie Seat Booking</title>
-  </head>
-  <body onload="moviename()">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/seatselectionstyle.css" />
+  <title>Movie Seat Booking</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/dropstyle.css">
 
-
-    <div class="movie-container" id="movie-container">
-      <input type="hidden" id="movie" name="Name" placeholder="Selected Movie Name" value="15">
-    </div>
-    <br>
-
-    <ul class="showcase">
-      <li>
-        <div class="seat"></div>
-        <small>N/A</small>
-      </li>
-
-      <li>
-        <div class="seat selected"></div>
-        <small>Selected</small>
-      </li>
-
-      <li>
-        <div class="seat occupied"></div>
-        <small>Occupied</small>
-      </li>
-    </ul>
-
-    <div class="container">
-      <div class="screen"></div>
-      <div class="row">
-        <div class="seat occupied">Seat</div>
-        <div class="seat occupied" >1</div>
-        <div class="seat occupied">2</div>
-        <div class="seat occupied">3</div>
-        <div class="seat occupied">4</div>
-        <div class="seat occupied">5</div>
-        <div class="seat occupied">6</div>
-        <div class="seat occupied">7</div>
-      </div>
-      <div class="row">
-        <div class="seat occupied">A</div>
-        <div class="seat" id="A1"></div>
-        <div class="seat" id="A2"></div>
-        <div class="seat" id="A3"></div>
-        <div class="seat" id="A4"></div>
-        <div class="seat" id="A5"></div>
-        <div class="seat" id="A6"></div>
-        <div class="seat" id="A7"></div>
-      </div>
-      <div class="row">
-        <div class="seat occupied">B</div>
-        <div class="seat" id="B1"></div>
-        <div class="seat" id="B2"></div>
-        <div class="seat occupied" id="B3"></div>
-        <div class="seat occupied" id="B4"></div>
-        <div class="seat" id="B5"></div>
-        <div class="seat" id="B6"></div>
-        <div class="seat" id="B7"></div>
-      </div>
-
-      <div class="row">
-        <div class="seat occupied">C</div>
-        <div class="seat" id="C1"></div>
-        <div class="seat" id="C2"></div>
-        <div class="seat" id="C3"></div>
-        <div class="seat" id="C4"></div>
-        <div class="seat" id="C5"></div>
-        <div class="seat occupied" id="C6"></div>
-        <div class="seat occupied" id="C7"></div>
-      </div>
-
-      <div class="row">
-        <div class="seat occupied">D</div>
-        <div class="seat" id="D1"></div>
-        <div class="seat" id="D2"></div>
-        <div class="seat" id="D3"></div>
-        <div class="seat" id="D4"></div>
-        <div class="seat" id="D5"></div>
-        <div class="seat" id="D6"></div>
-        <div class="seat" id="D7"></div>
-      </div>
-
-      <div class="row">
-        <div class="seat occupied">E</div>
-        <div class="seat" id="E1"></div>
-        <div class="seat" id="E2"></div>
-        <div class="seat occupied" id="E3"></div>
-        <div class="seat occupied" id="E4"></div>
-        <div class="seat" id="E5"></div>
-        <div class="seat" id="E6"></div>
-        <div class="seat" id="E7"></div>
-      </div>
-
-      <div class="row">
-        <div class="seat occupied">F</div>
-        <div class="seat" id="F1"></div>
-        <div class="seat" id="F2"></div>
-        <div class="seat" id="F3"></div>
-        <div class="seat occupied" id="F4"></div>
-        <div class="seat occupied" id="F5"></div>
-        <div class="seat occupied" id="F6"></div>
-        <div class="seat" id="F7"></div>
-      </div>
+  <div class="action">
+    <div class="profile" onclick="menuToggle();">
+      <img src="imgs/user.png" alt="">
     </div>
 
-    <p class="text">
-      You have selected <span id="count">0</span> seats
-    </p>
-    <div id="proceedbtn">
-      <!-- <a href="http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${element}&Showdate=${showdate}';">
+    <div class="menu">
+      <h3>
+        <p id="userName"> </p>
+      </h3>
+      <ul>
+        <li>
+          <span class="material-icons icons-size">person</span>
+          <a href="Myprofile.html">My Profile</a>
+        </li>
+        <li>
+          <span class="material-icons icons-size">mode</span>
+          <a href="Manageprofile.html">Edit Profile</a>
+        </li>
+        <li>
+          <span class="material-icons icons-size">insert_comment</span>
+          <a href="orderhistory.html">Booking History</a>
+        </li>
+        <li>
+          <span class="material-icons icons-size">logout </span>
+          <a href="home.html">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <style>
+    .action .menu {
+      background-color: #FFF;
+      box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 10px 20px;
+      position: absolute;
+      right: -10px;
+      width: 200px;
+      transition: 0.5s;
+      right: -615px;
+      top: 120px;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .action .profile {
+      border-radius: 50%;
+      cursor: pointer;
+      height: 50px;
+      overflow: hidden;
+      position: relative;
+      width: 50px;
+      top: -10px;
+      right: -600px;
+    }
+  </style>
+
+
+
+
+</head>
+
+<body onload="moviename()">
+
+
+
+  <div class="movie-container" id="movie-container">
+    <input type="hidden" id="movie" name="Name" placeholder="Selected Movie Name" value="15">
+  </div>
+  <br>
+
+  <ul class="showcase">
+    <li>
+      <div class="seat"></div>
+      <small>N/A</small>
+    </li>
+
+    <li>
+      <div class="seat selected"></div>
+      <small>Selected</small>
+    </li>
+
+    <li>
+      <div class="seat occupied"></div>
+      <small>Occupied</small>
+    </li>
+  </ul>
+
+  <div class="container">
+    <div class="screen"></div>
+    <div class="row">
+      <div class="seat occupied">Seat</div>
+      <div class="seat occupied">1</div>
+      <div class="seat occupied">2</div>
+      <div class="seat occupied">3</div>
+      <div class="seat occupied">4</div>
+      <div class="seat occupied">5</div>
+      <div class="seat occupied">6</div>
+      <div class="seat occupied">7</div>
+    </div>
+    <div class="row">
+      <div class="seat occupied">A</div>
+      <div class="seat" id="A1"></div>
+      <div class="seat" id="A2"></div>
+      <div class="seat" id="A3"></div>
+      <div class="seat" id="A4"></div>
+      <div class="seat" id="A5"></div>
+      <div class="seat" id="A6"></div>
+      <div class="seat" id="A7"></div>
+    </div>
+    <div class="row">
+      <div class="seat occupied">B</div>
+      <div class="seat" id="B1"></div>
+      <div class="seat" id="B2"></div>
+      <div class="seat occupied" id="B3"></div>
+      <div class="seat occupied" id="B4"></div>
+      <div class="seat" id="B5"></div>
+      <div class="seat" id="B6"></div>
+      <div class="seat" id="B7"></div>
+    </div>
+
+    <div class="row">
+      <div class="seat occupied">C</div>
+      <div class="seat" id="C1"></div>
+      <div class="seat" id="C2"></div>
+      <div class="seat" id="C3"></div>
+      <div class="seat" id="C4"></div>
+      <div class="seat" id="C5"></div>
+      <div class="seat occupied" id="C6"></div>
+      <div class="seat occupied" id="C7"></div>
+    </div>
+
+    <div class="row">
+      <div class="seat occupied">D</div>
+      <div class="seat" id="D1"></div>
+      <div class="seat" id="D2"></div>
+      <div class="seat" id="D3"></div>
+      <div class="seat" id="D4"></div>
+      <div class="seat" id="D5"></div>
+      <div class="seat" id="D6"></div>
+      <div class="seat" id="D7"></div>
+    </div>
+
+    <div class="row">
+      <div class="seat occupied">E</div>
+      <div class="seat" id="E1"></div>
+      <div class="seat" id="E2"></div>
+      <div class="seat occupied" id="E3"></div>
+      <div class="seat occupied" id="E4"></div>
+      <div class="seat" id="E5"></div>
+      <div class="seat" id="E6"></div>
+      <div class="seat" id="E7"></div>
+    </div>
+
+    <div class="row">
+      <div class="seat occupied">F</div>
+      <div class="seat" id="F1"></div>
+      <div class="seat" id="F2"></div>
+      <div class="seat" id="F3"></div>
+      <div class="seat occupied" id="F4"></div>
+      <div class="seat occupied" id="F5"></div>
+      <div class="seat occupied" id="F6"></div>
+      <div class="seat" id="F7"></div>
+    </div>
+  </div>
+
+  <p class="text">
+    You have selected <span id="count">0</span> seats
+  </p>
+  <div id="proceedbtn">
+    <!-- <a href="http://localhost/Integration/Project/ordersummary.html?title=${title}&showtime=${element}&Showdate=${showdate}';">
         <input type="button"  value="Proceed" class="btn" >
       </a> -->
-    </div>
-    <script src="js/seatselectionscript.js"></script>
-  </body>
+  </div>
+  <script src="js/seatselectionscript.js"></script>
+
+  <script src="js/movieinformation.js"></script>
+  <script>
+    function menuToggle() {
+      const toggleMenu = document.querySelector('.menu');
+      toggleMenu.classList.toggle('active')
+    }
+  </script>
+
+  <script>
+    var un = window.localStorage.getItem('userName');
+    document.getElementById("userName").innerHTML = un;
+    function check() {
+      window.localStorage.clear();
+      var url = window.location.href;
+      window.history.go(-window.history.length);
+      window.location.href = url;
+    }
+  </script>
+</body>
+
 </html>

@@ -88,6 +88,7 @@ async function orderdetails() {
 }
 
 function confirmpayment() {
+    
     dataToSend = {};
     dataToSend["totalPrice"]=document.getElementById("checkoutmovietotal").innerHTML;
     dataToSend["numberOfTickets"]=document.getElementById("checkoutmovietickets").innerHTML;
@@ -96,10 +97,12 @@ function confirmpayment() {
         dataToSend["promotion"]={"promotionCode":document.getElementById("checkoutpromocode").innerHTML};
     }
 
-    dataToSend["paymentCard"]={"cardNumber":document.getElementById("cardnumber").value};
+    dataToSend["paymentCard"]={"cardNumber":document.getElementById("cardnumber").value, "expiryDate": document.getElementById("exp").value+"-01"};
     dataToSend["showdetails"] = {"showId": {"showDate" : showdate, "showTime" : showtime, "screen" : {"screenID" : screenid},}};
     dataToSend["movie"] = {"title": title};
     dataToSend["user"] = {"userName": un};
+    dataToSend["paymentCardNew"] = document.getElementById("cardcheckbox").checked;
+
 
     fetch("http://localhost:8080/checkout/submitOrder",
     {
