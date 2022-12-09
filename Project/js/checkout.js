@@ -9,7 +9,7 @@ const resultGrid = document.getElementById('orderdetailscard');
 const buttons = document.getElementById('finalbutton');
 const screenid = urlParams.get('screenid');
 const selectedSeatsCount = urlParams.get('seatcount');
-const seats=urlParams.get('seats');
+const seats = urlParams.get('seats');
 
 var un = window.localStorage.getItem('userName');
 
@@ -23,12 +23,12 @@ const api_url = "http://localhost:8080/getCheckoutDetails/" + un;
 
 
 
-
+var totalprice =0;
 async function orderdetails() {
     const onlinefees = 2;
     const nooftickets = seatcount;
-    const salestaxprice = totalticketprice*0.2;
-    const totalprice = Number(totalticketprice)+Number(salestaxprice)+Number(onlinefees);
+    const salestaxprice = totalticketprice * 0.2;
+    totalprice = Number(totalticketprice) + Number(salestaxprice) + Number(onlinefees);
     resultGrid.innerHTML = `
     <p><h3>Your order</h3></p>
         <h4 >Movie: <span id="checkoutmovietitle">${title}</span> </h4>
@@ -70,12 +70,12 @@ async function orderdetails() {
 
     const userpaymentcards = data.paymentCards;
     console.log(userpaymentcards);
-    const noofpaymentcards=userpaymentcards.length;
-    if(noofpaymentcards == 3) {
+    const noofpaymentcards = userpaymentcards.length;
+    if (noofpaymentcards == 3) {
         // document.getElementById("cardholdername").setAttribute("disabled","");
         // document.getElementById("cardnumber").setAttribute("disabled","");
         // document.getElementById("exp").setAttribute("disabled","");
-        document.getElementById("cardcheckbox").setAttribute("disabled","");
+        document.getElementById("cardcheckbox").setAttribute("disabled", "");
     }
     checkoutuserpaymentcardslist1.innerHTML = ``;
     for (let i of userpaymentcards) {
@@ -88,49 +88,49 @@ async function orderdetails() {
 }
 
 function confirmpayment() {
-    
+
     dataToSend = {};
-    dataToSend["totalPrice"]=document.getElementById("checkoutmovietotal").innerHTML;
-    dataToSend["numberOfTickets"]=document.getElementById("checkoutmovietickets").innerHTML;
-    
+    dataToSend["totalPrice"] = document.getElementById("checkoutmovietotal").innerHTML;
+    dataToSend["numberOfTickets"] = document.getElementById("checkoutmovietickets").innerHTML;
+
     if (document.getElementById("checkoutpromocode")) {
-        dataToSend["promotion"]={"promotionCode":document.getElementById("checkoutpromocode").innerHTML};
+        dataToSend["promotion"] = { "promotionCode": document.getElementById("checkoutpromocode").innerHTML };
     }
 
-    dataToSend["paymentCard"]={"cardNumber":document.getElementById("cardnumber").value, "expiryDate": document.getElementById("exp").value+"-01"};
-    dataToSend["showdetails"] = {"showId": {"showDate" : showdate, "showTime" : showtime, "screen" : {"screenID" : screenid},}};
-    dataToSend["movie"] = {"title": title};
-    dataToSend["user"] = {"userName": un};
+    dataToSend["paymentCard"] = { "cardNumber": document.getElementById("cardnumber").value, "expiryDate": document.getElementById("exp").value + "-01" };
+    dataToSend["showdetails"] = { "showId": { "showDate": showdate, "showTime": showtime, "screen": { "screenID": screenid }, } };
+    dataToSend["movie"] = { "title": title };
+    dataToSend["user"] = { "userName": un };
     dataToSend["paymentCardNew"] = document.getElementById("cardcheckbox").checked;
 
 
     fetch("http://localhost:8080/checkout/submitOrder",
-    {
+        {
 
-      // Adding method type
-      method: "POST",
+            // Adding method type
+            method: "POST",
 
-      // Adding body or contents to send
-      body: JSON.stringify(dataToSend),
+            // Adding body or contents to send
+            body: JSON.stringify(dataToSend),
 
-      // Adding headers to the request
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    })
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
 
-    // Converting to JSON
-    .then(response => response.json())
-    .then(json => {
-        if(json.statusCode==400) {
-            alert(json.statusMessage)
-            
-        }
-        else {
-            window.location.href=`http://localhost/Integration/Project/orderconfirmation.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=${seats}&totalticketprice=${totalticketprice}&finalprice=${document.getElementById("checkoutmovietotal").innerHTML}&bookingid=${json.bookingID}`;
-        }
-    })
-    
+        // Converting to JSON
+        .then(response => response.json())
+        .then(json => {
+            if (json.statusCode == 400) {
+                alert(json.statusMessage)
+
+            }
+            else {
+                window.location.href = `http://localhost/Integration/Project/orderconfirmation.html?title=${title}&showtime=${showtime}&showdate=${showdate}&screenid=${screenid}&seatcount=${selectedSeatsCount}&seats=${seats}&totalticketprice=${totalticketprice}&finalprice=${document.getElementById("checkoutmovietotal").innerHTML}&bookingid=${json.bookingID}`;
+            }
+        })
+
 }
 
 
@@ -168,16 +168,19 @@ function loadcarddetails() {
 
 
 async function applypromocode() {
-    const promourl= "http://localhost:8080/verifyPromoCodegetValue/"+document.getElementById("promocode").value;
-    const response = await fetch(promourl);
-    const data = await response.json();
-    if(data==0) {
-        alert("Invalid Promo Code");
+    if (document.getElementById("promocode").value) {
+        const promourl = "http://localhost:8080/verifyPromoCodegetValue/" + document.getElementById("promocode").value;
+        const response = await fetch(promourl);
+        const data = await response.json();
+        if (data == 0) {
+            alert("Invalid Promo Code");
+        }
+        else {
+            const totalticketprice = document.getElementById("checkoutmovietotal")
+            totalticketprice.innerHTML = totalprice - data;
+        }
+        console.log(data)
     }
-    else {
-        const totalticketprice= document.getElementById("checkoutmovietotal")
-        totalticketprice.innerHTML=totalticketprice.innerHTML-data;
-    }
-    console.log(data)
+
 }
 

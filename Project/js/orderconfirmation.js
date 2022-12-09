@@ -6,6 +6,7 @@ const showtime = urlParams.get('showtime')
 const showdate = urlParams.get('showdate')
 const finalprice = urlParams.get('finalprice')
 const bookingid = urlParams.get('bookingid')
+const seats = urlParams.get('seats')
 const resultGrid = document.getElementById('ticketconfirm');
 
 function ticketconf() {
@@ -48,6 +49,17 @@ function ticketconf() {
                     ${title}
                 </td>
             </tr>
+            <tr>
+                <td width="75%" align="left"
+                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                    Seat Numbers 
+                </td>
+                <td width="25%" align="left"
+                    style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                    ${seats}
+                </td>
+            </tr>
+            
             <tr>
                 <td width="75%" align="left"
                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
